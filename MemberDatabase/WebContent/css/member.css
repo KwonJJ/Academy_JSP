@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.container{
+	padding : 20px;
+	margin : 20px;
+	width : 500px;
+	height : 300px;
+	border : 3px solid black;
+	border-radius : 20px;
+	box-shadow : 5px 5px 5px gray;
+	text-align: center;
+}
