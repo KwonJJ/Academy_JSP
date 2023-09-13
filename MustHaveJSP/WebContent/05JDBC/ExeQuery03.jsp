@@ -16,29 +16,26 @@
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		
 		try{
-			String url = "jdbc:mysql://localhost:3306/member";
+			String url = "jdbc:mysql://localhost:3306/member?useUnicode=true&characterEncoding=utf-8";
 			String id = "manager";
 			String pw = "1234";
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(url, id, pw);
 			
-			String sql = "select  * from member";
+			String sql = "select  * from student where s_name like '홍%'";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()){
-				String id2 = rs.getString(1);
-				String name = rs.getString(2);
-				String pw2 = rs.getString(3);
-				String pwCheck = rs.getString(4);
-				String tel = rs.getString(5);
-				String email = rs.getString(6);
-				String radio = rs.getString(7);
-				String box = rs.getString(8);
+				String s_name = rs.getString(1);
+				String s_id = rs.getString(2);
+				String s_tel = rs.getString(3);
+				String s_address = rs.getString(4);
 				
-				out.print(id2 + " " + name + " " + pw2 + " " + pwCheck + " " + tel + " " + email + " " + radio + " " + box);
+				out.print(s_name + " " + s_id + " " + s_tel + " " + s_address);
+				
+				
 			}
 			
 		} catch(Exception e){
