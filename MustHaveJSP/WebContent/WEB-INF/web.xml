@@ -9,6 +9,10 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
 	<!-- 
 	<context-param>
 		<param-name>INIT_PARAM</param-name>  변수 이름 
