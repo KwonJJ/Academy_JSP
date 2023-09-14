@@ -21,7 +21,7 @@
 		String url = application.getInitParameter("OracleURL");
 		String id = application.getInitParameter("OracleId");
 		String pwd = application.getInitParameter("OraclePwd");
-		JDBConnect jdbc2 = new JDBConnect(driver,url,id,pwd);
+		JDBConnect jdbc2 = new JDBConnect(driver, url, id, pwd);
 		jdbc2.close();
 	%>
 </body>

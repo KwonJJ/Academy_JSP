@@ -37,7 +37,7 @@
 			
 	%>
 		<%= session.getAttribute("UserName")%> 회원님, 로그인 하셨습니다. <br>
-		<a href = "Loout.jsp">[로그아웃]</a>
+		<a href = "Logut.jsp">[로그아웃]</a>
 
 	<%
 		}
