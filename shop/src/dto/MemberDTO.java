@@ -4,6 +4,8 @@ public class MemberDTO {
 	private String id;
 	private String name;
 	private String pass;
+	private String phone;
+	private String address;
 
 	public String getId() {
 		return id;
@@ -27,6 +29,22 @@ public class MemberDTO {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }
