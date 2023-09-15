@@ -38,6 +38,9 @@
 						out.print("<a class='navbar-brand' href='products.jsp'>");
 						out.print("상품목록");
 						out.print("</a>");
+						out.print("<a class='navbar-brand' href='addProduct.jsp'>");
+						out.print("상품추가");
+						out.print("</a>");
 					}
 				%>
 			</div>

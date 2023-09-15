@@ -46,8 +46,10 @@ public class MemberDAO extends JDBConnect {
 			psmt.setString(4, phone);
 			psmt.setString(5, address);
 			psmt.executeUpdate();
+			System.out.println("회원 가입 성공");
 		
 		} catch(Exception e) {
+			e.printStackTrace();
 			System.out.println("회원 가입 실패");
 		}
 		return result;
@@ -71,6 +73,7 @@ public class MemberDAO extends JDBConnect {
 					psmt = con.prepareStatement(query2);
 					psmt.setString(1, id);
 					psmt.executeUpdate();
+					System.out.println("회원 탈퇴 성공");
 					break;
 					
 				}

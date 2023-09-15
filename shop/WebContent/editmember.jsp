@@ -37,8 +37,7 @@
 			
 				<div class="form-group">
 					<label for="inputUserId" class="sr-only">아이디</label> 
-					<input type="text" class="form-control" placeholder="아이디" 
-					name="id" id="inputUserId"  value="<%= session.getAttribute("user_id") %>" disabled required autofocus>
+					<input type="text" class="form-control" name="id" id="inputUserId" readonly value="<%= session.getAttribute("user_id") %>">
 				</div>
 			
 				<div class="form-group">
@@ -55,8 +54,7 @@
 
 				<div class="form-group">
 					<label for="inputName" class="sr-only">이름</label> 
-					<input type="text" class="form-control" placeholder="이름" 
-					name="name" id = "inputName" value ="<%= session.getAttribute("user_name") %>" disabled required autofocus>
+					<input type="text" class="form-control" name="name" id = "inputName" value ="<%= session.getAttribute("user_name") %>" disabled required autofocus>
 				</div>
 
 				<div class="form-group">
@@ -71,7 +69,7 @@
 					placeholder="주소 입력" name="address" id = "inputAddress" required>
 				</div>
 				
-				<button class="btn btn-lg btn-success btn-block" type="submit">회원정보 수정</button>
+				<button class="btn btn-lg btn-info btn-block" type="submit">회원정보 수정</button>
 			</form>
 		</div>
 	</div>
