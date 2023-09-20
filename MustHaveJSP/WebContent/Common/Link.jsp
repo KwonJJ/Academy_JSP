@@ -13,7 +13,7 @@
 					<% if(session.getAttribute("UserId") == null){ %>
 						<a href = "../06session/LoginForm.jsp">로그인</a>
 					<% } else { %>
-						<a href = "../06session/Logout.jsp">로그아웃</a>
+						<a href = "../06session/Logut.jsp">로그아웃</a>
 					<% } %>
 					
 					&nbsp;&nbsp;&nbsp;

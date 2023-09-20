@@ -38,6 +38,7 @@
 	%>
 		<%= session.getAttribute("UserName")%> 회원님, 로그인 하셨습니다. <br>
 		<a href = "Logut.jsp">[로그아웃]</a>
+		<a href = "../08Board/Write.jsp">글쓰기</a>
 
 	<%
 		}
