@@ -68,7 +68,7 @@
 			// 게시물이 하나도 없을 때				
 		%>
 			<tr>
-				<td colsqan = "5" align = "center">
+				<td colspan = "5" align = "center">
 					등록된 게시물이 없슴니다^^*
 				</td>
 			</tr>

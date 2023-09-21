@@ -57,10 +57,10 @@ public class BoardDAO extends JDBConnect {
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				BoardDTO dto = new BoardDTO();
-				
+
 				dto.setNum(rs.getString("num"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
@@ -68,9 +68,9 @@ public class BoardDAO extends JDBConnect {
 				dto.setId(rs.getString("id"));
 				dto.setVisitcount(rs.getString("visitcount"));
 				bbs.add(dto);
-				
+
 			}
-			
+
 			System.out.println("개시물 조회 성공");
 		} catch (Exception e) {
 			System.out.println("게시물 조회 실패");
@@ -78,11 +78,10 @@ public class BoardDAO extends JDBConnect {
 
 		return bbs;
 	}
-	
+
 	public int insertWrite(BoardDTO dto) {
 		int result = 0;
-		
-		
+
 		try {
 			String query = "insert into board(num, title, content, id, visitcount) values(seq_board_num.NEXTVAL, ?, ?, ?, 0)";
 			psmt = con.prepareStatement(query);
@@ -90,13 +89,87 @@ public class BoardDAO extends JDBConnect {
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getId());
 			result = psmt.executeUpdate(); // 쿼리 실행문
-			
+
 			System.out.println("글쓰기 성공");
-		} catch(Exception e) {
-			
+		} catch (Exception e) {
+
 			System.out.println("글쓰기 오류");
 			e.printStackTrace();
 		}
+		return result;
+	}
+
+	public BoardDTO selectView(String num) {
+		// 게시물 상세 보기 메소드
+		BoardDTO dto = new BoardDTO();
+
+		String query = "select B.*, M.name "
+				+ " from member M inner join board B "
+				+ " on M.id=B.id "
+				+ " where num=?";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, num);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setNum(rs.getString("num"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setPostdate(rs.getDate("postdate"));
+				dto.setId(rs.getString("id"));
+				dto.setVisitcount(rs.getString("visitcount"));
+				dto.setName(rs.getString("name"));
+				
+				System.out.println("게시물 상세보기 성공");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("게시물 상세보기 오류");
+		}
+		
+		return dto;
+	}
+	
+	public void updateVisitCount(String num) {
+		// 게시물의 조회수 증가 메소드
+		String query = "UPDATE board SET "
+				+ " visitcount = visitcount + 1 "
+				+ " WHERE num = ?";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, num); // 인파라미트를 일련번호로 설정
+			psmt.executeQuery(); // 쿼리 실행
+			
+		} catch(Exception e) {
+			System.out.println("게시물 조회수 증가 중 오류 발생");
+			e.printStackTrace();
+		}
+	}
+	
+	public int updateEdit(BoardDTO dto) {
+		// 게시물 수정
+		int result = 0;
+		
+		String query = "update board set title = ?, contert = ?, where num = ?";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getNum());
+			result = psmt.executeUpdate();
+			
+			
+			System.out.println("게시물 수정 성공");
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("게시물 수정 오류");
+		}
+		
 		return result;
 	}
 }
