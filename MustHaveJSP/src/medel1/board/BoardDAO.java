@@ -154,7 +154,7 @@ public class BoardDAO extends JDBConnect {
 		// 게시물 수정
 		int result = 0;
 		
-		String query = "update board set title = ?, contert = ?, where num = ?";
+		String query = "update board set title = ?, content = ? where num = ?";
 		
 		try {
 			psmt = con.prepareStatement(query);
@@ -168,6 +168,26 @@ public class BoardDAO extends JDBConnect {
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("게시물 수정 오류");
+		}
+		
+		return result;
+	}
+	
+	public int deletePost(BoardDTO dto) {
+		int result = 0;
+		
+		try {
+			String query = "delete from board where num = ?";
+			
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getNum());
+			
+			result = psmt.executeUpdate();
+			
+			System.out.println("게시물 삭제 성공");
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("게시물 삭제 오류 발생");
 		}
 		
 		return result;

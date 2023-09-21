@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="dto.Product" %>
-<%@ page import="dto.ProductRepository" %>
+<%@ page import="dao.ProductRepository" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +20,13 @@
 	<%
 		String id = request.getParameter("id");
 		// Repository 메소드 하나 만든 아이디 가지고 한 개의 product 모든 개체 가져오기
-		ProductRepository dao = new ProductRepository().getInstance();
+		ProductRepository dao = new ProductRepository();//.getInstance();
+		// db연결
+		dao.selectProduct();
+		// 전체 상품 목록 끌어옴
 		Product product = dao.getProductById(id);
+		// 아이디 일치하는 것만 가져옴
+		dao.close();
 	%>
 	
 	<div class="container">

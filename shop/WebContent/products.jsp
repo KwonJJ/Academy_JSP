@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="dto.Product" %>
-<%@ page import="dto.ProductRepository" %>
+<%@ page import="dao.ProductRepository" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +17,14 @@
 			<h1 class="display-3">상품목록</h1>
 		</div>
 	</div>
-	
 	<%
-		ProductRepository dao = new ProductRepository().getInstance();
+		//ProductRepository dao = new ProductRepository().getInstance();
+		//ArrayList<Product> listOfProducts = dao.getAllProducts();
+		
+		ProductRepository dao = new ProductRepository();
+		dao.selectProduct();
 		ArrayList<Product> listOfProducts = dao.getAllProducts();
+		dao.close();
 	%>
 	<div class="container">
 		<div class="row" align="center">
@@ -29,7 +33,7 @@
 					Product product = listOfProducts.get(i);
 			%>
 				<div class="col-md-4">
-					<!-- <img src="resources/images/P123<%=i+4 %>.jpg" style = "width:100%"> -->
+					<!-- <img src="resources/images/P123<%//=i+4 %>.jpg" style = "width:100%"> -->
 					<img src="resources/images/<%=product.getProductId() %>.jpg" style = "width:100%">
 					<h3><%=product.getPname()%></h3>
 					<h3><%=product.getDescription()%></h3>
