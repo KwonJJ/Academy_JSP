@@ -28,6 +28,7 @@
 	} else {
 		session.invalidate();
 		dao.close();
+		response.sendRedirect("logout.jsp");
 	}
 %>
 

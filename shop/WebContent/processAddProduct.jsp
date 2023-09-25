@@ -17,7 +17,7 @@
 	long unitsInStock = Long.parseLong(request.getParameter("unitsInStock"));
 	String condition = request.getParameter("condition");
 	
-	ProductRepository pr = new ProductRepository().getInstance();
+	ProductRepository pr = new ProductRepository();
 	Product newProduct = new Product(); 
 	newProduct.setProductId(productId);
 	newProduct.setPname(pname);
