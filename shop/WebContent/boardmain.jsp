@@ -11,13 +11,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<%@ include file="menu.jsp"%>
+	<%@ include file="LoginCheck.jsp" %>
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3">게시판</h1>
@@ -49,6 +49,8 @@
 				}
 			%>
 		</table>
+		
+		<button type = "button" onclick = "location.href = 'Write.jsp';">글쓰기</button>
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>

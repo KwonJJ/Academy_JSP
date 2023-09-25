@@ -62,4 +62,26 @@ public class BoardDAO extends JDBConnect {
 		return dto;
 	}
 	
+	public int insertWrite(BoardDTO dto) {
+		// 글쓰기
+		int result = 0;
+		
+		try {
+			String query = "insert into board(title, content, id, postdate, visitcount) values(?, ?, ?, ?, 0) ";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getId());
+			psmt.setString(4, dto.getPostdate());
+			result = psmt.executeUpdate();
+			
+			System.out.println("게시물 글쓰기 성공");
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("게시물 글쓰기 오류");
+		}
+		
+		return result;
+	}
+	
 }
