@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="dto.Product" %>
 <%@ page import="dao.ProductRepository" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +13,14 @@
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
+	<%@ include file="LoginCheck.jsp" %>
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3">상품목록</h1>
 		</div>
 	</div>
+	
 	<%
-		//ProductRepository dao = new ProductRepository().getInstance();
-		//ArrayList<Product> listOfProducts = dao.getAllProducts();
-		
 		ProductRepository dao = new ProductRepository();
 		dao.selectProduct();
 		ArrayList<Product> listOfProducts = dao.getAllProducts();
@@ -33,16 +33,14 @@
 					Product product = listOfProducts.get(i);
 			%>
 				<div class="col-md-4">
-					<!-- <img src="resources/images/P123<%//=i+4 %>.jpg" style = "width:100%"> -->
-					<img src="resources/images/<%=product.getProductId() %>.jpg" style = "width:100%">
+					<img src="resources/images/<%=product.getProductId()%>.png">
 					<h3><%=product.getPname()%></h3>
 					<h3><%=product.getDescription()%></h3>
 					<h3><%=product.getUnitPrice()%></h3>
 					<p> 
-						<a href = "product.jsp?id=<%=product.getProductId()%>" 
-						class = "btn btn-secondary" role="button">상세보기 </a>
+					<a href="product.jsp?id=<%=product.getProductId()%>"
+					class="btn btn-secondary" role="button">상세 정보</a>
 					</p>
-						
 				</div>
 			<%	
 				}
@@ -50,7 +48,17 @@
 		</div>
 	</div>
 	
-	
 	<%@ include file="footer.jsp" %>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

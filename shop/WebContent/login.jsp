@@ -19,7 +19,7 @@
 		
 	
 	<div class="container" align="center">
-		<div class="col-md-4 col-md-offset-5">
+		<div class="col-md-4 col-md-offset-4">
 			<h5 class="form-signin-heading">아이디와 비밀번호를 입력해주세요</h5>
 			<%
 				String error = request.getParameter("error");
@@ -29,17 +29,17 @@
 					out.print("</div>");
 				}
 			%>
-			<form name = "login" class="form-signin" action="loginprocess.jsp" method="post">
+			<form class="form-signin" action="loginprocess.jsp" method="post">
 
 				<div class="form-group">
-					<label for="inputUserId" class="sr-only">아이디</label> 
+					<label for="inputUserName" class="sr-only">아이디</label> 
 					<input type="text" class="form-control" placeholder="아이디" 
-					name="id" id= "inputUserId" required autofocus>
+					name="id" required autofocus>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword" class="sr-only">비밀번호</label> 
 					<input type="password" class="form-control" 
-					placeholder="비밀번호" name="password" id = "inputPassword" required>
+					placeholder="비밀번호" name="password" required>
 				</div>
 				<button class="btn btn-lg btn-success btn-block" 
 					type="submit">로그인</button>

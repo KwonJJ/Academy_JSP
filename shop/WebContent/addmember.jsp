@@ -1,35 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String id = (String)session.getAttribute("user_id");
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 <meta charset="UTF-8">
-<title>회원 정보 수정</title>
+<title>회원 가입</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
 	
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">회원수정</h1>
+			<h1 class="display-3">회원가입</h1>
 		</div>
 	</div>
 	
 	<div class="container" align="center">
 		<div class="col-md-4 col-md-offset-5">
 			
-		
+			<%
+				String error = request.getParameter("error");
+				if (error != null) {
+					out.println("<div class='alert alert-danger'>");
+					out.println("아이디가 중복되었습니다");
+					out.println("</div>");
+				}
+			%>
 			
-			<form name="login" class="form-signin" action="editMemberProcess.jsp" method="post">
+			<form name="login" class="form-signin" action="addmemberprocess.jsp" method="post">
 
 				<div class="form-group">
 					<label for="inputUserId" class="sr-only">아이디</label> 
-					<input type="text" class="form-control"
-					name="id" id="inputUserId" readonly value=<%=id%>>
+					<input type="text" class="form-control" placeholder="아이디" 
+					name="id" id="inputUserId" required autofocus>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword" class="sr-only">비밀번호</label> 
@@ -53,8 +57,8 @@
 				</div>
 				
 				
-				<button class="btn btn-lg btn-info btn-block" 
-					type="submit">회원수정</button>
+				<button class="btn btn-lg btn-success btn-block" 
+					type="submit">회원가입</button>
 
 			</form>
 		</div>
