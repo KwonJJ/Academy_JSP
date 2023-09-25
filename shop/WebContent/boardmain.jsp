@@ -38,7 +38,7 @@
 			%>
 			<tr align = "center">
 				<td><%=bto.getNum() %></td>
-				<td><%=bto.getTitle() %></td>
+				<td><a href = "View.jsp?num=<%=bto.getNum()%> "> <%=bto.getTitle() %> </a></td>
 				<td><%=bto.getId() %></td>
 				<td><%=bto.getVisitcount() %></td>
 				<td><%=bto.getPostdate() %></td>
