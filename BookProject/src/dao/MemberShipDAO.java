@@ -36,8 +36,8 @@ public class MemberShipDAO extends JDBConnect {
 	
 	public int AddMember(String memberid, String memberpw, String membername, String memberaddress, String membertel) {
 		
-		String sql = "insert into membership values(?, ?, ?, ?, ?)";
 		int result = 0;
+		String sql = "insert into membership values(?, ?, ?, ?, ?)";
 		
 		try {
 			psmt = con.prepareStatement(sql);
@@ -46,13 +46,32 @@ public class MemberShipDAO extends JDBConnect {
 			psmt.setString(3, membername);
 			psmt.setString(4, memberaddress);
 			psmt.setString(5, membertel);
-			psmt.executeUpdate();
+			result = psmt.executeUpdate();
 			
 			System.out.println("회원가입 성공");
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("회원가입 실패");
 		}
+		return result;
+	}
+	
+	public int deleteMember(String id, String pw) {
+		String sql = "delete from membership where memberid = ? and memberpw=?";
+		int result = 0;
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			result = psmt.executeUpdate();
+			
+		
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("회원 삭제 실패");
+		}
+		
 		return result;
 	}
 }

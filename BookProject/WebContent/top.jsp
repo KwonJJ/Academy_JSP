@@ -11,5 +11,6 @@
 		out.print("<a href = 'logout.jsp'>로그아웃</a>");
 		out.print(" ");
 		out.print("<a href = 'deletemember.jsp'>회원탈퇴</a>");
+		out.print(" ");
 	}
 %>

@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-
 	<form action="addmemberProcess.jsp" method = "post">
 		<table>
 			<tr>
@@ -35,14 +33,14 @@
 			
 			<tr>
 				<td>
-					주소 입력 : <input type = "text" id = "memberaddress" name = "memberaddress">
+					주소 입력 : <input type = "text" id = "member_address" name = "member_address">
 				</td>
 
 			</tr>
 			
 			<tr>
 				<td>
-					전화번호 입력 : <input type = "text" id = "membertel" name = "membertel">
+					전화번호 입력 : <input type = "text" id = "member_tel" name = "member_tel">
 				</td>
 
 			</tr>
