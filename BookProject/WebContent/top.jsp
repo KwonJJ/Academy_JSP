@@ -12,5 +12,6 @@
 		out.print(" ");
 		out.print("<a href = 'deletemember.jsp'>회원탈퇴</a>");
 		out.print(" ");
+		out.print("<a href = 'BookList.jsp'>도서 목록 보기</a>");
 	}
 %>
