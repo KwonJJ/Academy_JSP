@@ -104,7 +104,8 @@
 			<div class="row g-2 align-items-cemter" id="col">
 				<button type = "button" onclick = "location.href = 'boardmain.jsp';">목록보기</button>
 				<button type = "submit">게시물 수정</button>
-				<button type = "button" onclick = "location.href = 'Delete.jsp';">게시물 삭제</button>
+				<button type = "button" onclick = "location.href = 'Delete.jsp?num=<%=dto.getNum()%>';">게시물 삭제</button>
+			
 			</div>
 		</form>
 	</div>
