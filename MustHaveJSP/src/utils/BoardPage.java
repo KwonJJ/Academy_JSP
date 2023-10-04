@@ -24,9 +24,9 @@ public class BoardPage {
 		int blockCount = 1;
 		while(blockCount <= blockPage && pageTemp <= totalPages) {
 			if(pageTemp == pageNum) {
-				pagingStr += "&nbsp;" + pageTemp + "&nbsp;";
+				pagingStr += "&nbsp;<a style = 'color:red;'>" + pageTemp + "&nbsp;";
 			} else {
-				pagingStr += "&nbsp; <a href = '" + reqUrl + "?pageNum=" + pageTemp + "'>" + pageTemp + "</a>&nbsp;";
+				pagingStr += "&nbsp; <a style = 'color:black;' href = '" + reqUrl + "?pageNum=" + pageTemp + "'>" + pageTemp + "</a>&nbsp;";
 			}
 			pageTemp++;
 			blockCount++;

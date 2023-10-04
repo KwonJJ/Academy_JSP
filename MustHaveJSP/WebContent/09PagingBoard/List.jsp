@@ -52,6 +52,11 @@
 %>
 <!DOCTYPE html>
 <html>
+<style>
+	a {
+		text-decoration: none;
+	}
+</style>
 <head>
 <meta charset="UTF-8">
 <title> 회원제 게시판 </title>
