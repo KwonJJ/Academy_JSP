@@ -3,6 +3,7 @@
 	<name>shop</name>
 	<comment></comment>
 	<projects>
+		<project>mysql-connector-java-5.1.49</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

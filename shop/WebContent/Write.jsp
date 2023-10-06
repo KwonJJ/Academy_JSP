@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,19 +18,20 @@
 	
 	<div class="container" align="center">
 		<div class="col-md-6 col-md-offset-2">
-			
+					
 			<form name="write" class="form-signin" action="WriteProcess.jsp" method="post">
 
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="제목" name="title" required autofocus>
+					<input type="text" class="form-control" placeholder="제목" 
+					name="title" required autofocus>
 				</div>
-				
 				<div class="form-group">
-					<textarea class = "form-control" placeholder = "내용" name = "content" required></textarea>
+					<textarea class="form-control" placeholder="내용" 
+					name="content" required></textarea>
 				</div>
 				
-				
-				<button class="btn btn-lg btn-success btn-block" type="submit">글쓰기</button>
+				<button class="btn btn-lg btn-success btn-block" 
+					type="submit">글작성</button>
 
 			</form>
 		</div>

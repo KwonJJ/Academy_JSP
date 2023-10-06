@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import javax.servlet.jsp.JspWriter;
-
 public class JDBConnect {
 	public Connection con; // 데이터베이스 연결
 	public Statement stmt; // 파라미터 없는 정적 쿼리문
@@ -27,17 +25,6 @@ public class JDBConnect {
 
 		} catch (Exception e) {
 			System.out.println("데이터베이스 연결 실패");
-			e.printStackTrace();
-		}
-	}
-
-	public JDBConnect(String driver, String url, String id, String pwd, JspWriter out) {
-		try {
-			Class.forName(driver);
-			con = DriverManager.getConnection(url, id, pwd);
-			out.println("<h1>2번째 생성자 연결 성공</h1>");
-		} catch (Exception e) {
-			System.out.println("2번째 데이터베이스 연결 오류입니다.");
 			e.printStackTrace();
 		}
 	}

@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+	<context-param>
+		<param-name>POST_PAGE</param-name>
+		<param-value>20</param-value>
+	</context-param>
+	<context-param>
+		<param-name>BLOCK_COUNT</param-name>
+		<param-value>10</param-value>
+	</context-param>
+
 </web-app>

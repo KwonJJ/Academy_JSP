@@ -8,7 +8,7 @@
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 <meta charset="UTF-8">
-<title>회원 정보 수정</title>
+<title>회원 수정</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
@@ -24,7 +24,7 @@
 			
 		
 			
-			<form name="login" class="form-signin" action="editMemberProcess.jsp" method="post">
+			<form name="login" class="form-signin" action="editmemberprocess.jsp" method="post">
 
 				<div class="form-group">
 					<label for="inputUserId" class="sr-only">아이디</label> 

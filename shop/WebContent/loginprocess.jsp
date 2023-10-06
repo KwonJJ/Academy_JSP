@@ -25,37 +25,6 @@
 		}
 		
 		dao.close();
-		
-		/* DAO, DTO 분리작업 안한 것
-		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		JDBConnect jdbc = new JDBConnect();
-
-		String sql = "select * from member";
-		PreparedStatement psmt = jdbc.con.prepareStatement(sql);
-		ResultSet rs = psmt.executeQuery();
-
-		String result = "";
-			
-			while (rs.next()) {
-				String id2 = rs.getString(1);
-				String name = rs.getString(2);
-				String password2 = rs.getString(3);
-
-			if (id.equals(id2) && password.equals(password2)) {
-				result = name + "님 환영합니다.";
-				session.setAttribute("user_id", id2);
-				session.setAttribute("user_name", name);
-				break;
-				}			
-			}
-
-			if (result == "") {
-			request.getRequestDispatcher("login.jsp?error=1").forward(request, response);
-			}
-			
-			jdbc.close();
-	*/
 	
 %>
 <!DOCTYPE html>

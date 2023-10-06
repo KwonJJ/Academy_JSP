@@ -29,7 +29,6 @@
 					out.print("</div>");
 				}
 			%>
-			<h3></h3>
 			<form class="form-signin" action="deletememberprocess.jsp" method="post">
 				<div class="form-group">
 					<label for="inputPassword" class="sr-only">비밀번호</label> 

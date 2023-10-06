@@ -71,7 +71,6 @@ public class MemberDAO extends JDBConnect {
 					psmt = con.prepareStatement(query2);
 					psmt.setString(1, id);
 					psmt.executeUpdate();
-					System.out.println("회원 삭제 성공");
 					break;
 				}
 			}
@@ -79,24 +78,6 @@ public class MemberDAO extends JDBConnect {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("회원 삭제 실패");
-		}
-		return result;
-	}
-
-	public String editMember(String id, String password, String phone, String address) {
-		String query = "update member set pw=?, phone=?, address=? where id=?";
-		String result = "";
-
-		try {
-			psmt = con.prepareStatement(query);
-			psmt.setString(1, password);
-			psmt.setString(2, phone);
-			psmt.setString(3, address);
-			psmt.setString(4, id);
-			psmt.executeUpdate();
-
-		} catch (Exception e) {
-			System.out.println("회원정보 수정 실패");
 		}
 		return result;
 	}

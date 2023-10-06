@@ -29,7 +29,7 @@
 						out.print("<a class='navbar-brand' href='deletemember.jsp'>");
 						out.print("회원탈퇴");
 						out.print("</a>");
-						out.print("<a class='navbar-brand' href='boardmain.jsp'>");
+						out.print("<a class='navbar-brand' href='boardmain.jsp?pageNum=1'>");
 						out.print("게시판");
 						out.print("</a>");
 					}
