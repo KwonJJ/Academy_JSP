@@ -1,6 +1,7 @@
 package el;
 
 public class MyELClass {
+	
 	public String getGender(String jumin) {
 		String returnStr = "";
 		/*
@@ -26,5 +27,14 @@ public class MyELClass {
 		}
 		
 		return returnStr;
+	}
+	
+	public String getId(String email) {
+		String result = "";
+		
+		int endIdx = email.indexOf("@") + 1;
+		result = email.substring(0, endIdx);
+		
+		return result;
 	}
 }
