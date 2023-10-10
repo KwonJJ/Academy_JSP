@@ -9,6 +9,7 @@
 <%
 	String point = request.getParameter("point");
 	StudentDAO dao = new StudentDAO();
+	
 	List<StudentDTO> studentlist = dao.selectAll(point);
 
 	dao.close();
