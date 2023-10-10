@@ -29,6 +29,7 @@ public class StudentDAO extends MysqlCon {
 				dto.setKor(rs.getInt(2));
 				dto.setEng(rs.getInt(3));
 				dto.setMat(rs.getInt(4));
+				dto.setPoint(rs.getString(5));
 				dtolist.add(dto);
 			}
 		} catch(Exception e) {

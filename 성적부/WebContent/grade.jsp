@@ -42,22 +42,13 @@
 		</tr>
 		<%
 			for (StudentDTO dto : studentlist) {
-			double avg = (dto.getKor() + dto.getEng() + dto.getMat()) / 3;
 		%>
-		<c:set var="avg" value="<%=avg%>" />
 		<tr>
 			<th><%=dto.getStudentId()%></th>
 			<th><%=dto.getKor()%></th>
 			<th><%=dto.getEng()%></th>
 			<th><%=dto.getMat()%></th>
-			<th>
-				<c:choose>
-					<c:when test="${avg >= 90 }">A학점</c:when>
-					<c:when test="${avg >= 80 }">B학점</c:when>
-					<c:when test="${avg >= 70 }">C학점</c:when>
-					<c:otherwise>F학점</c:otherwise>
-				</c:choose>
-			</th>
+			<th><%=dto.getPoint()%></th>
 		</tr>
 		<%
 			}
