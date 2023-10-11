@@ -13,15 +13,20 @@ public class BoardDAO extends JDBConnect {
 	}
 
 	// 게시물의 개수 세기
-	public int selectCount() {
+	public int selectCount(String searchField, String searchWord) {
 		int result = 0;
 		String query = "select count(*) from board";
+		
+		if(searchWord != null) {
+			query += " where " + searchField + " like '%" + searchWord + "%'";
+		}
 
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
 			rs.next();
 			result = rs.getInt(1);
+			System.out.println("게시물 개수 세기 정상 처리");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("게시물 개수 세기 오류");
@@ -31,10 +36,16 @@ public class BoardDAO extends JDBConnect {
 	}
 
 	// 게시물의 내용 가져오기
-	public List<BoardDTO> selectList(int start) {
+	public List<BoardDTO> selectList(int start, String searchField, String searchWord) {
 		List<BoardDTO> dto = new ArrayList<BoardDTO>();
-		int totalNum = selectCount() - start + 1;
-		String query = "select * from board order by num desc";
+		int totalNum = selectCount(searchField, searchWord) - start + 1;
+		String query = "select * from board";
+
+		if(searchWord != null) {
+			query += " where " + searchField + " like '%" + searchWord + "%'";
+		}
+		query += " order by num desc";
+
 		int limit = 0;
 		try {
 			stmt = con.createStatement();
@@ -43,7 +54,8 @@ public class BoardDAO extends JDBConnect {
 
 			while (rs.next()) {
 				BoardDTO bto = new BoardDTO();
-				bto.setNum(totalNum);
+				bto.setNum(rs.getInt("num"));
+				bto.setVirNum(totalNum);
 				bto.setTitle(rs.getString("title"));
 				bto.setContent(rs.getString("content"));
 				bto.setId(rs.getString("id"));
