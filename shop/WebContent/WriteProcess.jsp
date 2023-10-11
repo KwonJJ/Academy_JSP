@@ -27,7 +27,7 @@
 	dao.close();
 	
 	if(result==1) {
-		response.sendRedirect("boardmain.jsp");
+		response.sendRedirect("boardmain.jsp?pageNum=1");
 	} else {
 		JSFunction.alertBack("글쓰기에 실패했습니다.", out);
 	}
