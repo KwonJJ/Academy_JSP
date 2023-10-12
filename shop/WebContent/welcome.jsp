@@ -1,9 +1,11 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%!
+<%
 	String greeting = "쇼핑몰 방문을 환영합니다";
 	String tagline = "자바 쇼핑몰에 어서오세요";
 %>
@@ -14,7 +16,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script>
+<!-- <script>
 	$(function(){
 		function getClock(){
 			var date = new Date();
@@ -36,7 +38,7 @@
 		getClock();
 		setInterval(getClock,1000);
 	});
-</script>
+</script> -->
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
@@ -52,7 +54,14 @@
 			<h3>
 				<%=tagline%>
 			</h3>
-			<h3 id="clock"></h3>
+			<!-- <h3 id="clock"></h3> -->
+			<c:set var = "today" value = "<%=new java.util.Date() %>"/>
+			<h3>
+				<fmt:formatDate value="${today }" type = "both" pattern = "yyyy-MM-dd hh:mm:ss"/><br>
+			</h3>
+			<%
+				response.setIntHeader("Refresh", 1);
+			%>
 		</div>	
 	</div>
 	<%@ include file="footer.jsp" %>
