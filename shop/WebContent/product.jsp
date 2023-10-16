@@ -28,7 +28,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<img src="resources/images/<%=product.getProductId()%>.png"
+				<img src="resources/images/<%=product.getProductImage()%>"
 				style="width:100%">
 			</div>
 			<div class="col-md-6">

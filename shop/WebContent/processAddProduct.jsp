@@ -1,20 +1,29 @@
+<%@page import="java.io.File"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="dto.Product" %>
 <%@ page import="dao.ProductRepository" %>
 
 <% 
-	request.setCharacterEncoding("utf-8");
-	String productId = request.getParameter("productId");
-	String pname = request.getParameter("pname");
-	int unitPrice = Integer.parseInt(request.getParameter("unitPrice"));
-	String description = request.getParameter("description");
-	String manufacturer = request.getParameter("manufacturer");
-	String category = request.getParameter("category");
-	long unitsInStock = Long.parseLong(request.getParameter("unitsInStock"));
-	String condition = request.getParameter("condition");
+	String saveDirectory = application.getRealPath("/resources/images"); //
+	int maxPostSize = 5 * 1024 * 1024;
+	String encoding = "utf-8";
 	
+	MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxPostSize, encoding, new DefaultFileRenamePolicy());
+
+	String productId = mr.getParameter("productId");
+	String pname = mr.getParameter("pname");
+	int unitPrice = Integer.parseInt(mr.getParameter("unitPrice"));
+	String description = mr.getParameter("description");
+	String manufacturer = mr.getParameter("manufacturer");
+	String category = mr.getParameter("category");
+	long unitsInStock = Long.parseLong(mr.getParameter("unitsInStock"));
+	String condition = mr.getParameter("condition");
+	String productImage = mr.getFilesystemName("productImage");
 	
+	File photoFile = new File(saveDirectory + File.separator + productImage);
 	
 	ProductRepository pr = new ProductRepository();
 	Product newProduct = new Product();
@@ -26,6 +35,7 @@
 	newProduct.setCategory(category);
 	newProduct.setUnitsInStock(unitsInStock);
 	newProduct.setCondition(condition);
+	newProduct.setProductImage(productImage);
 	
 	pr.addProduct(newProduct);
 	response.sendRedirect("products.jsp");

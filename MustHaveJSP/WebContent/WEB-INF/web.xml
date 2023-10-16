@@ -71,35 +71,22 @@
 		<param-name>PAGES_PER_BLOCK</param-name>
 		<param-value>5</param-value>
 	</context-param>
-	<!-- 
-	<context-param>
-		<param-name>INIT_PARAM</param-name>  변수 이름 
-		<param-value>web.xml에 저장한 초기화 매개변수</param-value>  변수 값 
-	</context-param>
-
-	<context-param>
-		<param-name>id</param-name> 변수 이름 
-		<param-value>java</param-value>  변수 값 
-	</context-param>
-
-	<context-param>
-		<param-name>pw</param-name> 변수 이름 
-		<param-value>1234</param-value>  변수 값 
-	</context-param>
 	
-	<error-page>
-		<error-code>404</error-code>
-		<location>/02ImplicitObject/Exception.jsp</location>
-	</error-page>
-
-	<error-page>
-		<error-code>405</error-code>
-		<location>/02ImplicitObject/Exception.jsp</location>
-	</error-page>
-
-	<error-page>
-		<error-code>500</error-code>
-		<location>/02ImplicitObject/Exception.jsp</location>
-	</error-page>
-	-->
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>servlet.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/13Servlet/HelloServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>servlet.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/13Servlet/Login.do</url-pattern>
+	</servlet-mapping>
 </web-app>

@@ -19,6 +19,7 @@
 		if(dto.getId() != null) {
 			session.setAttribute("user_id",dto.getId());
 			session.setAttribute("user_name",dto.getName());
+			session.setAttribute("user_pw",dto.getPass());
 			result=dto.getName() + "님 환영합니다.";
 		} else {
 			request.getRequestDispatcher("login.jsp?error=1").forward(request,response);

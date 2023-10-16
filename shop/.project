@@ -5,6 +5,7 @@
 	<projects>
 		<project>jstl-1.2</project>
 		<project>mysql-connector-java-5.1.49</project>
+		<project>cos</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

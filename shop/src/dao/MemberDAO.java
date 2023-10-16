@@ -27,6 +27,7 @@ public class MemberDAO extends JDBConnect {
 				dto.setPass(rs.getString(3));
 				dto.setPhone(rs.getString(4));
 				dto.setAddress(rs.getString(5));
+				dto.setPhotoimage(rs.getString(6));
 			}
 		} catch(Exception e) {
 			System.out.println("db 연결 실패");
@@ -35,8 +36,8 @@ public class MemberDAO extends JDBConnect {
 		return dto;
 	}
 	
-	public void insertMember(String id, String name, String password, String phone, String address) {
-		String query = "insert into member values(?,?,?,?,?)";
+	public void insertMember(String id, String name, String password, String phone, String address, String photoimage) {
+		String query = "insert into member values(?,?,?,?,?,?)";
 		
 		
 		try {
@@ -46,6 +47,7 @@ public class MemberDAO extends JDBConnect {
 			psmt.setString(3, password);
 			psmt.setString(4, phone);
 			psmt.setString(5, address);
+			psmt.setString(6, photoimage);
 			psmt.executeUpdate();
 			System.out.println("회원 추가 성공");
 			

@@ -33,7 +33,7 @@
 					Product product = listOfProducts.get(i);
 			%>
 				<div class="col-md-4">
-					<img src="resources/images/<%=product.getProductId()%>.png">
+					<img src="resources/images/<%=product.getProductImage()%>" style = width:300px;height:200px;">
 					<h3><%=product.getPname()%></h3>
 					<h3><%=product.getDescription()%></h3>
 					<h3><%=product.getUnitPrice()%></h3>

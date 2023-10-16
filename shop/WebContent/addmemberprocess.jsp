@@ -1,15 +1,27 @@
+<%@page import="java.io.File"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="dao.MemberDAO"%>
 <%@page import="java.sql.*"%>
 <%@page import="common.JDBConnect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
-	String id = request.getParameter("id");
-	String password = request.getParameter("password");
-	String name = request.getParameter("name");		
-	String phone = request.getParameter("phone");		
-	String address = request.getParameter("address");		
+	
+	String saveDirectory = application.getRealPath("/Uploads"); // 실제 저장 폴더 위치
+	int maxPostSize = 5 * 1024 * 1024;   // 파일 최대 용량 5MB
+	String encoding = "utf-8";
+
+	MultipartRequest mr = new MultipartRequest(request,saveDirectory,maxPostSize,encoding,new DefaultFileRenamePolicy());
+
+	String id = mr.getParameter("id");
+	String password = mr.getParameter("password");
+	String name = mr.getParameter("name");		
+	String phone = mr.getParameter("phone");		
+	String address = mr.getParameter("address");
+	String photoimage = mr.getFilesystemName("photoImage");
+	
+	File photoFile = new File(saveDirectory+File.separator + photoimage);
 	
 	MemberDAO dao = new MemberDAO();
 		
@@ -28,10 +40,11 @@
 		} 
 	}
 	
-	dao.insertMember(id, name, password, phone, address);
-	dao.close();
+	if(result=="") {
+		dao.insertMember(id, name, password, phone, address,photoimage);
+		dao.close();
 	
-
+	}
 %>    
     
 <!DOCTYPE html>

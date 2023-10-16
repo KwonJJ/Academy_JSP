@@ -28,7 +28,7 @@
 				}
 			%>
 			
-			<form name="login" class="form-signin" action="addmemberprocess.jsp" method="post">
+			<form name="login" class="form-signin" action="addmemberprocess.jsp" method="post" enctype="multipart/form-data">
 
 				<div class="form-group">
 					<label for="inputUserId" class="sr-only">아이디</label> 
@@ -56,6 +56,11 @@
 					placeholder="주소" name="address" id="address" required>
 				</div>
 				
+				<div class="form-group">
+					<label for="inputImage" class="sr-only">사진</label> 
+					<input type="file" class="form-control" 
+					placeholder="사진" name="photoImage" id="inputImage" required>
+				</div>
 				
 				<button class="btn btn-lg btn-success btn-block" 
 					type="submit">회원가입</button>

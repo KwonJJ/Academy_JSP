@@ -17,7 +17,7 @@
 	</div>
 	
 	<div class="container">
-		<form name="newProduct" action="processAddProduct.jsp" class="form-horizontal" method="post">
+		<form name="newProduct" action="processAddProduct.jsp" class="form-horizontal" method="post" enctype = "multipart/form-data">
 			<div class="form-group row">
 				<label class="col-sm-2">상품코드</label>
 				<div class="col-sm-3">
@@ -66,6 +66,12 @@
 					<input type="radio" name="condition" value="신상품"> 신상품
 					<input type="radio" name="condition" value="중고상품"> 중고상품
 					<input type="radio" name="condition" value="재생품"> 재생품
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2">제품 사진</label>
+				<div class="col-sm-3">
+					<input type="file" name="productImage" class = "form-control" required>
 				</div>
 			</div>
 			<div class="form-group row">
