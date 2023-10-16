@@ -89,4 +89,13 @@
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/13Servlet/Login.do</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DirectServletPrint</servlet-name>
+		<servlet-class>servlet.DirectServletPrint</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DirectServletPrint</servlet-name>
+		<url-pattern>/13Servlet/DirectServletPrint.do</url-pattern>
+	</servlet-mapping>
 </web-app>
