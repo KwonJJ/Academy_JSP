@@ -106,7 +106,7 @@ public class MVCBoardDAO extends JDBConnect {
 	public MVCBoardDTO selectView(String idx) { 
 		MVCBoardDTO dto = new MVCBoardDTO();
 		
-		String query = "select B.*, M.name from mvcboard where ids = ?";
+		String query = "select * from mvcboard where idx = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, idx);
