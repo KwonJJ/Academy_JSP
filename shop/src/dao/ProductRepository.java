@@ -64,7 +64,7 @@ public class ProductRepository extends JDBConnect {
 	
 	public int addProduct(Product product) {
 		int result=0;
-		String sql = "insert into product values(?,?,?,?,?,?,?,?, ?)";
+		String sql = "insert into product values(?,?,?,?,?,?,?,?,?)";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1,product.getProductId());
@@ -75,7 +75,7 @@ public class ProductRepository extends JDBConnect {
 			psmt.setString(6,product.getManufacturer());
 			psmt.setLong(7,product.getUnitsInStock());
 			psmt.setString(8,product.getCondition());
-			psmt.setString(9, product.getProductImage());
+			psmt.setString(9,product.getProductImage());
 			result = psmt.executeUpdate();
 
 		} catch(Exception e) {
@@ -103,7 +103,6 @@ public class ProductRepository extends JDBConnect {
 		
 		return result;
 	}
-	
 }
 
 

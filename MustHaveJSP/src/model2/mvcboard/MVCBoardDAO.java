@@ -150,7 +150,24 @@ public class MVCBoardDAO extends JDBConnect {
 			System.out.println("게시물 조회수 증가 오류"); 
 			} 
 		}
+
+	// 첨부파일 조회수 증가 메소드 
+	public void downCountPlus(String idx) {
+		String query = "update mvcboard set "
+				+ " downcount = downcount + 1 "
+				+ " where idx=?";
+		try { 
+			psmt = con.prepareStatement(query); 
+			psmt.setString(1, idx);
+			psmt.executeQuery();
+			System.out.println("첨부파일 다운 증가 성공");
+		} catch(Exception e) { 
+			e.printStackTrace();
+			System.out.println("첨부파일 다운 증가 오류"); 
+		} 
 	}
+	
+}
   
 /*
  * // 게시물 수정 public int updateEdit(MVCBoardDTO dto) { int result =0;

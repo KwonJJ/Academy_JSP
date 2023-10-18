@@ -27,9 +27,8 @@
 	%>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5">
-				<img src="resources/images/<%=product.getProductImage()%>"
-				style="width:100%">
+			<div class="col-md-5" align="center">
+				<img src="resources/images/<%=product.getProductImage()%>"  style="width:300px;height:300px">
 			</div>
 			<div class="col-md-6">
 					<h3><%=product.getPname()%></h3>
@@ -41,7 +40,7 @@
 					<p>제조사 : <%=product.getManufacturer()%></p>
 					<p>구분 : <%=product.getCategory()%></p>
 					<p>재고 : <%=product.getUnitsInStock()%>개</p>
-					<p>가격 :<%=product.getUnitPrice()%>원</p>
+					<p>가격 : <%=product.getUnitPrice()%>원</p>
 					
 					<p>
 					<a href="#" class="btn btn-info">상품 주문</a>

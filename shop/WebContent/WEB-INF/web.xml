@@ -18,5 +18,14 @@
 		<param-name>BLOCK_COUNT</param-name>
 		<param-value>10</param-value>
 	</context-param>
+	
+	<servlet>
+		<servlet-name>loginCheck</servlet-name>
+		<servlet-class>servlet.loginCheck</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginCheck</servlet-name>
+		<url-pattern>/loginCheck.mvc</url-pattern>
+	</servlet-mapping>
 
 </web-app>

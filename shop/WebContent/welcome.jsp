@@ -57,11 +57,9 @@
 			<h3>
 				<%=tagline%>
 			</h3>
-			<c:set var="today" value="<%= new java.util.Date() %>"/>
-			<h3><fmt:formatDate value="${today}" type="both" pattern="yyyy-MM-dd hh:mm:ss"/></h3>
-			<%
-				response.setIntHeader("Refresh", 1);
-			%>
+			
+			<h3 id="clock"></h3>
+		
 		</div>	
 	</div>
 	<%@ include file="footer.jsp" %>
