@@ -74,44 +74,40 @@ public class MVCBoardDAO extends JDBConnect {
 		return bbs;
 	}
 
-	public int insertWrite(MVCBoardDTO dto) { 
-		int result=0;
-	  
-		try { 
-			String query = "insert into mvcboard ( "
-					+ " idx, name, title, content, ofile, sfile, pass) "
-					+ " values( "
-					+ " seq_board_num.NEXTVAL, ?, ?, ?, ?, ?, ?)"; 
-			psmt = con.prepareStatement(query); 
+	public int insertWrite(MVCBoardDTO dto) {
+		int result = 0;
+
+		try {
+			String query = "insert into mvcboard ( " + " idx, name, title, content, ofile, sfile, pass) " + " values( "
+					+ " seq_board_num.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+			psmt = con.prepareStatement(query);
 			psmt.setString(1, dto.getName());
-			psmt.setString(2, dto.getTitle()); 
+			psmt.setString(2, dto.getTitle());
 			psmt.setString(3, dto.getContent());
 			psmt.setString(4, dto.getOfile());
 			psmt.setString(5, dto.getSfile());
 			psmt.setString(6, dto.getPass());
 			result = psmt.executeUpdate();
-		  
+
 			System.out.println("글쓰기 성공");
-		  
-		 	} catch(Exception e) {
-		 		e.printStackTrace(); 
-		 		System.out.println("글쓰기 오류"); 
-		 }
-	  	return result;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("글쓰기 오류");
+		}
+		return result;
 	}
 
-
-
-	// 게시물 상세보기 메소드 
-	public MVCBoardDTO selectView(String idx) { 
+	// 게시물 상세보기 메소드
+	public MVCBoardDTO selectView(String idx) {
 		MVCBoardDTO dto = new MVCBoardDTO();
-		
+
 		String query = "select * from mvcboard where idx = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, idx);
 			rs = psmt.executeQuery();
-			
+
 			if (rs.next()) {
 				dto.setIdx(rs.getString(1));
 				dto.setName(rs.getString(2));
@@ -123,52 +119,89 @@ public class MVCBoardDAO extends JDBConnect {
 				dto.setDowncount(rs.getInt(8));
 				dto.setPass(rs.getString(9));
 				dto.setVisitcount(rs.getInt(10));
-				}
+			}
 			System.out.println("게시물 상세보기 성공");
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("게시물 상세보기 오류");
-			}
+		}
 		return dto;
 	}
 
-
-
-  // 게시물의 조회수 증가 메소드 
+	// 게시물의 조회수 증가 메소드
 	public void updateVisitCount(String idx) {
-		String query = "update mvcboard set "
-				+ " visitcount = visitcount + 1 "
-				+ " where idx=?";
-		try { 
-			psmt = con.prepareStatement(query); 
+		String query = "update mvcboard set " + " visitcount = visitcount + 1 " + " where idx=?";
+		try {
+			psmt = con.prepareStatement(query);
 			psmt.setString(1, idx);
 			psmt.executeQuery();
 			System.out.println("게시물 조회수 증가 성공");
-		} catch(Exception e) { 
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("게시물 조회수 증가 오류"); 
-			} 
+			System.out.println("게시물 조회수 증가 오류");
 		}
+	}
 
-	// 첨부파일 조회수 증가 메소드 
+	// 첨부파일 조회수 증가 메소드
 	public void downCountPlus(String idx) {
-		String query = "update mvcboard set "
-				+ " downcount = downcount + 1 "
-				+ " where idx=?";
-		try { 
-			psmt = con.prepareStatement(query); 
+		String query = "update mvcboard set " + " downcount = downcount + 1 " + " where idx=?";
+		try {
+			psmt = con.prepareStatement(query);
 			psmt.setString(1, idx);
 			psmt.executeQuery();
 			System.out.println("첨부파일 다운 증가 성공");
-		} catch(Exception e) { 
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("첨부파일 다운 증가 오류"); 
-		} 
+			System.out.println("첨부파일 다운 증가 오류");
+		}
 	}
-	
+	// 비밀번호 맞는지 확인
+	public boolean confirmPassword(String pass, String idx) {
+		boolean isCorr = true;
+		
+		try {
+			String query = "select count(*) from mvcboard where pass = ? and idx = ?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, pass);
+			psmt.setString(2, idx);
+			rs = psmt.executeQuery();
+			rs.next();
+			
+			if(rs.getInt(1) == 0) {
+				isCorr = false;
+			}
+			System.out.println("비밀번호 확인 성공");
+			
+		} catch(Exception e) {
+			System.out.println("비밀번호 확인 실패");
+			isCorr = false;
+			e.printStackTrace();
+		}
+		
+		return isCorr;
+	}
+
+	// 게시물 삭제
+	public int deletePost(String idx) {
+		int result = 0;
+		String query = "delete from mvcboard where idx = ?";
+
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, idx);
+			result = psmt.executeUpdate();
+			System.out.println("게시물 삭제 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("게시물 삭제 실패");
+		}
+
+		return result;
+	}
+
 }
-  
+
 /*
  * // 게시물 수정 public int updateEdit(MVCBoardDTO dto) { int result =0;
  * 
@@ -182,16 +215,5 @@ public class MVCBoardDAO extends JDBConnect {
  * System.out.println("게시물 수정 오류"); }
  * 
  * return result; }
- * 
- * // 게시물 삭제 public int deletePost(MVCBoardDTO dto) { int result=0; String query
- * = "delete from board where num=?";
- * 
- * try { psmt = con.prepareStatement(query); psmt.setString(1, dto.getNum());
- * result = psmt.executeUpdate(); System.out.println("게시물 삭제 성공");
- * }catch(Exception e) { e.printStackTrace(); System.out.println("게시물 삭제 실패"); }
- * 
- * 
- * return result; }
- * 
  * 
  */

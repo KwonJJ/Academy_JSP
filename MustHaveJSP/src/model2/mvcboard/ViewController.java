@@ -2,7 +2,6 @@ package model2.mvcboard;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +21,7 @@ public class ViewController extends HttpServlet {
 		MVCBoardDTO dto = dao.selectView(idx);
 		dao.close();
 		
-		dto.setContent(dto.getContent().replace("\r\n", "<br>"));
+		dto.setContent(dto.getContent().replaceAll("\r\n", "<br>"));
 		
 		request.setAttribute("dto", dto);
 		request.getRequestDispatcher("/14MVCBoard/View.jsp").forward(request, response);

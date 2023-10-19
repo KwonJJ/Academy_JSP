@@ -25,8 +25,7 @@ public class FileUtil {
 
 	}
 
-	public static void download(HttpServletRequest request, HttpServletResponse response, String directory,
-			String sfileName, String ofileName) {
+	public static void download(HttpServletRequest request, HttpServletResponse response, String directory, String sfileName, String ofileName) {
 		String sDirectory = request.getServletContext().getRealPath(directory);
 		try {
 			File file = new File(sDirectory, sfileName);
@@ -61,4 +60,14 @@ public class FileUtil {
 		}
 
 	}
+	
+	public static void deleteFile(HttpServletRequest request, String directory, String filename) {
+		String sDirectory = request.getServletContext().getRealPath(directory);
+		File file = new File(sDirectory + File.separator + filename);
+		if(file.exists()) {
+			file.delete();
+		}
+	}
+	
+	
 }
