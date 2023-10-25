@@ -34,8 +34,8 @@ public class BoardDAO extends DBConnection  {
 
 	}
 	
-	public ArrayList<BoardDTO> getBoardList(int page, int limit, String items, String text) {
-	// board 테이블에 데이터 가져오기
+	public ArrayList<BoardDTO>    // board 테이블에 데이터 가져오기
+	getBoardList(int page, int limit, String items, String text) {
 		
 		int total_record = getListCount(items, text);  //조건에 맞는 전체 행의 개수
 		int start = (page - 1) * limit;   // 해당 페이지 게시물의 시작 지점
@@ -81,11 +81,12 @@ public class BoardDAO extends DBConnection  {
 		return null;
 	}
 	
-	public void boardWrite(BoardDTO dto) {
-		String sql = "insert into board values(?, ?, ?, ?, ?, ?, ?, ?)";
-		
+	//board 테이블에 새로운 글 삽입하기
+	public void insertBoard(BoardDTO dto)  {
 		try {
+			String sql = "insert into board values(?, ?, ?, ?, ?, ?, ?, ?)";
 			psmt = con.prepareStatement(sql);
+			// 게시판에 사용자가 작성한 내용을 서버에 추가함
 			psmt.setInt(1, dto.getNum());
 			psmt.setString(2, dto.getId());
 			psmt.setString(3, dto.getName());
@@ -95,27 +96,27 @@ public class BoardDAO extends DBConnection  {
 			psmt.setInt(7, dto.getHit());
 			psmt.setString(8, dto.getIp());
 			psmt.executeUpdate();
-			
-			System.out.println("게시글 쓰기 성공");
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("게시글 쓰기 오류");
-		}
+			System.out.println("게시판 글 작성 오류");
+		} 	
 	}
 	
-	public BoardDTO BoardByNum(int num) {
-		String sql = "select * from board where num = ?";
+	// 게시판 번호로 게시판 내용 가져오기
+	public BoardDTO getBoardByNum(int num) {
+		
+		String sql = "select * from board where num = ? ";
 		BoardDTO dto = null;
 		
 		// 게시판 조회수 증가
-		// updateHit(num);
+		updateHit(num); 
 		
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setInt(1, num);
 			rs = psmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				dto = new BoardDTO();
 				dto.setNum(rs.getInt("num"));
 				dto.setId(rs.getString("id"));
@@ -126,12 +127,60 @@ public class BoardDAO extends DBConnection  {
 				dto.setHit(rs.getInt("hit"));
 				dto.setIp(rs.getString("ip"));
 			}
-			System.out.println("게시물 상세 보기 성공");
 			
-		} catch(Exception e) {
+			return dto;
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("게시물 상세 보기 실패");
-		}
-		return dto;
+			System.out.println("게시판 세부내용 가져오기 에러");
+		} 
+		return null;
 	}
+	
+	public void updateHit(int num) {  // 게시판 글 조회횟수 증가
+		
+		try {
+			String sql = "update board set hit=hit+1 where num=?";
+			// DB에 증가된 횟수를 업데이트 시킴
+			psmt = con.prepareStatement(sql);		
+			psmt.setInt(1, num);
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("게시판 조회횟수 업데이트 에러");
+		} 
+	}
+	
+	// 게시글 수정하기
+	public void updateBoard(BoardDTO dto) {
+		
+		try {
+			String sql = "update board set subject=?, content=? where num=?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, dto.getSubject());
+			psmt.setString(2, dto.getContent());
+			psmt.setInt(3, dto.getNum());
+			psmt.executeUpdate();			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("게시물 수정하기 에러");
+		} 
+	}
+	
+	// 게시글 삭제하기
+	public void deleteBoard(int num) {
+		
+		String sql = "delete from board where num=?";	
+
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, num);
+			psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("게시글 삭제하기 오류");
+		} 
+	}
+		
 }

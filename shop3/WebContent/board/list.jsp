@@ -90,7 +90,7 @@
 				<c:set var="pageNum" value="<%=pageNum%>" />
 				<c:forEach var="i" begin="1" end="<%=total_page%>">
 				
-					<a href="<c:url value="./BoardListAction.do?pageNum=${i}" /> ">
+					<a href="<c:url value='./BoardListAction.do?pageNum=${i}' /> ">
 					
 						<c:choose>
 							<c:when test="${pageNum==i}">
@@ -120,11 +120,13 @@
 									<option value="name">글쓴이에서</option>
 							</select>
 							<input name="text" type="text"/>
-							<input type="submit" id="btnAdd" class="btn btn-primary" value="검색 " />
+							<input type="submit" id="btnAdd" class="btn btn-primary" 
+							value="검색 " >
 						</td>
 						
 						<td width="100%" align="right">
-							<a href="#" onclick="checkForm(); return false;" class="btn btn-primary">글쓰기</a>
+							<a href="#" onclick="checkForm(); return false;" 
+							class="btn btn-primary">글쓰기</a>
 						</td>
 					</tr>
 				</table>

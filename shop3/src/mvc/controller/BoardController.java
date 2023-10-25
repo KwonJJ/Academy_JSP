@@ -33,19 +33,21 @@ public class BoardController extends HttpServlet {
 		if(command.equals("/BoardListAction.do")) {   //등록된 글 출력하기
 			requestBoard(request);
 			request.getRequestDispatcher("./board/list.jsp").forward(request, response);
-			
-		} else if(command.equals("/BoardWriteForm.do")) {   // 글 등록 페이지 출력
+		} else if (command.equals("/BoardWriteForm.do")) { // 글 등록 페이지 출력함
 			request.getRequestDispatcher("./board/write.jsp").forward(request, response);
-		
-		} else if(command.equals("/BoardWriteAction.do")) { // 서버에 새로운 글 등록
+		} else if (command.equals("/BoardWriteAction.do")){ // 서버에 새로운 글을 등록함
 			requestBoardWrite(request);
 			request.getRequestDispatcher("/BoardListAction.do").forward(request, response);
-			
-		} else if(command.equals("/BoardViewAction.do")) { // 게시판 세부내용 출력
+		} else if (command.equals("/BoardViewAction.do")) {  // 게시판 세부내용 출력
 			requestBoardView(request);
-			request.getRequestDispatcher("./board/View.jsp").forward(request, response);
-		}
-	
+			request.getRequestDispatcher("./board/view.jsp").forward(request, response);
+		} else if (command.equals("/BoardUpdateAction.do")) {  // 게시판 글 수정
+			requestBoardUpdate(request);
+			request.getRequestDispatcher("/BoardListAction.do").forward(request, response);
+		} else if (command.equals("/BoardDeleteAction.do")) {  // 게시판 글 삭제
+			requestBoardDelete(request);
+			request.getRequestDispatcher("/BoardListAction.do").forward(request, response);
+		}	
 	}
 	
 	
@@ -89,41 +91,70 @@ public class BoardController extends HttpServlet {
 		request.setAttribute("boardlist", boardlist);
 	}
 	
-	public void requestBoardWrite(HttpServletRequest request) {
-		BoardDAO dao = new BoardDAO();
+	public void requestBoardWrite(HttpServletRequest request){
+		BoardDAO dao = new BoardDAO();		
 		BoardDTO dto = new BoardDTO();
 		
 		dto.setId(request.getParameter("id"));
 		dto.setName(request.getParameter("name"));
 		dto.setSubject(request.getParameter("subject"));
-		dto.setContent(request.getParameter("content"));
-
-		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		dto.setContent(request.getParameter("content"));	
 		
-		String regist_day = formatter.format(new java.util.Date());
+		java.text.SimpleDateFormat formatter 
+		= new java.text.SimpleDateFormat("yyyy-MM-dd");
 		
-		dto.setHit(0); // 조회수 0으로 초기값 설정
-		dto.setRegist_day(regist_day); // 오늘 날짜를 등록 일자로 입력
-		dto.setIp(request.getRemoteAddr()); // ip주소는 현재 컴퓨터 ip주소 입력
+		String regist_day = formatter.format(new java.util.Date()); 
 		
-		dao.boardWrite(dto); // boardDAO호출해서 삽입 구문 처리
+		dto.setHit(0);  // 조회수 0으로 세팅
+		dto.setRegist_day(regist_day);  // 오늘 날짜를 등록일자로 입력
+		dto.setIp(request.getRemoteAddr());	// ip주소는 현재컴퓨터 ip주소 입력		
+		
+		
+		dao.insertBoard(dto);	 // boardDAO를 호출해서 삽입구문 처리함	
 		dao.close();
 	}
 	
-	public void requestBoardView(HttpServletRequest request) {
+	// 게시판 세부내용 출력
+	public void requestBoardView(HttpServletRequest request){
+		
 		BoardDAO dao = new BoardDAO();
 		int num = Integer.parseInt(request.getParameter("num"));
-		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		int pageNum = Integer.parseInt(request.getParameter("pageNum"));	
 		
-		BoardDTO board = new BoardDTO();
-		board = dao.BoardByNum(num); // dao의 메소드 이용해서 상세 내용 가져오기
+		BoardDTO board = new BoardDTO();  
+		board = dao.getBoardByNum(num); // dao의 메소드 이용해 상세 내용 가져오기		
 		dao.close();
-		
-		request.setAttribute("num", num);
-		request.setAttribute("pageNum", pageNum);
-		request.setAttribute("board", board);
-		
+		request.setAttribute("num", num);		 
+   		request.setAttribute("page", pageNum); 
+   		request.setAttribute("board", board);						
 	}
+	
+	// 게시판 게시글 수정
+		public void requestBoardUpdate(HttpServletRequest request) {
+			int num = Integer.parseInt(request.getParameter("num"));
+			
+			BoardDAO dao = new BoardDAO();		
+			BoardDTO dto = new BoardDTO();
+			// DTO, DAO 객체를 각각 생성함
+			
+			dto.setNum(num);
+			dto.setSubject(request.getParameter("subject"));
+			dto.setContent(request.getParameter("content"));		
+			dao.updateBoard(dto);
+			dao.close();
+	}
+	
+	
+	// 게시판 게시글 삭제
+	public void requestBoardDelete(HttpServletRequest request){
+		int num = Integer.parseInt(request.getParameter("num"));
+		BoardDAO dao = new BoardDAO();
+		dao.deleteBoard(num);
+		dao.close();
+	}
+		
+	
+
 }
 
 

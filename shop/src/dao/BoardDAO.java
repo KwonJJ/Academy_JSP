@@ -180,7 +180,6 @@ public class BoardDAO extends JDBConnect {
 		
 			return result;
 		}
-	
 }
 
 
