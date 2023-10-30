@@ -33,17 +33,22 @@ public class BoardController extends HttpServlet {
 		if(command.equals("/BoardListAction.do")) {   //등록된 글 출력하기
 			requestBoard(request);
 			request.getRequestDispatcher("./board/list.jsp").forward(request, response);
+		
 		} else if (command.equals("/BoardWriteForm.do")) { // 글 등록 페이지 출력함
 			request.getRequestDispatcher("./board/write.jsp").forward(request, response);
+		
 		} else if (command.equals("/BoardWriteAction.do")){ // 서버에 새로운 글을 등록함
 			requestBoardWrite(request);
 			request.getRequestDispatcher("/BoardListAction.do").forward(request, response);
+		
 		} else if (command.equals("/BoardViewAction.do")) {  // 게시판 세부내용 출력
 			requestBoardView(request);
 			request.getRequestDispatcher("./board/view.jsp").forward(request, response);
+		
 		} else if (command.equals("/BoardUpdateAction.do")) {  // 게시판 글 수정
 			requestBoardUpdate(request);
 			request.getRequestDispatcher("/BoardListAction.do").forward(request, response);
+		
 		} else if (command.equals("/BoardDeleteAction.do")) {  // 게시판 글 삭제
 			requestBoardDelete(request);
 			request.getRequestDispatcher("/BoardListAction.do").forward(request, response);
