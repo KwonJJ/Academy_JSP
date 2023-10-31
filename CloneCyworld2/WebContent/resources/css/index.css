@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: orange;
+}
+
+footer {
+	margin-top: 40px;
+}
+
+.point {
+	color: blue;
+}
+
+.gray {
+	color: gray;
+	fill: gray;
+}
+
+.center-layout-column .logo {
+	margin-bottom: 20px;
+}
+
+.center-layout-column h3 {
+	margin-bottom: 30px;
+}

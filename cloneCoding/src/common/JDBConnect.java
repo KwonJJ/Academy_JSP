@@ -8,18 +8,18 @@ import java.sql.Statement;
 
 import javax.servlet.jsp.JspWriter;
 
-public class JDBConnect2 {
+public class JDBConnect {
 	public Connection con; // 데이터베이스 연결
 	public Statement stmt; // 정적 쿼리문 사용
 	public PreparedStatement psmt; // 동적 쿼리문 사용
 	public ResultSet rs; // 쿼리 실행 결과 저장
 
-	public JDBConnect2() { // 생성자
+	public JDBConnect() { // 생성자
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			// com.mysql.jdbc.Driver mysql 드라이버 이름
 
-			String url = "jdbc:mysql://localhost:3306/gesipan"; // db 접속 주소
+			String url = "jdbc:mysql://localhost:3306/cyworld"; // db 접속 주소
 			String id = "manager"; // 사용자 계정 아이디
 			String pwd = "1234"; // 계정 비밀번호
 			con = DriverManager.getConnection(url, id, pwd);
@@ -33,7 +33,7 @@ public class JDBConnect2 {
 		}
 	}
 
-	public JDBConnect2(String driver, String url, String id, String pwd, JspWriter out) {
+	public JDBConnect(String driver, String url, String id, String pwd, JspWriter out) {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, id, pwd);

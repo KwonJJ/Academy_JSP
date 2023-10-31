@@ -10,6 +10,7 @@
 <title>로그인 페이지</title>
 </head>
 <body class="center-layout-column">
+
 	<div class="center-layout-column">
 	<a href = "index.jsp">
 		<img class="logo" alt="logo" src="./resources/image/싸이월드main.png" width="200" height="200">
