@@ -26,6 +26,7 @@
 
 		<c:if test="${result == 0 }">
 			<p>${userId }는 사용 가능한 아이디입니다.</p>
+			
 			<button type = "submit" onclick = "idOk()">
 				사용
 			</button>

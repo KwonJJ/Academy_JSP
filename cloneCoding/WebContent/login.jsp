@@ -17,7 +17,7 @@
 	</a>
 
 		<div class="center-layout-column">
-			<form action="#" method="post">
+			<form action="LoginServlet" method="post">
 			<div class = "box">
 				<div class = "input-wrapper">
 					<label>아이디</label> 
@@ -29,13 +29,16 @@
 					<input type="password" name="pw" />
 				</div>
 				
+				<p>${message }</p>
+				
 				<div class = "right">
 				<button type="submit">로그인</button>
 				</div>
 			</div>
 			</form>
+			
 			<p class = "register right">
-				계정이 없으신가요?<a href="#" class="point">회원가입</a>
+				계정이 없으신가요?<a href="Register" class="point">회원가입</a>
 			</p>
 		</div>
 	</div>

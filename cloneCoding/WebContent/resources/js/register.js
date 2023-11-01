@@ -1,5 +1,6 @@
 function registerCheck() {
 	var id = document.frm.id.value;
+	var dupliId = document.frm.dupliId.value;
 	var pw = document.frm.pw.value;
 	var form = document.querySelector("form");
 	var pwCheck = document.frm.pwCheck.value;
@@ -37,8 +38,12 @@ function registerCheck() {
 	}
 	
 	// id, dupliId 동일한지 체크
-	
-	if(document.frm.duvliId.value.length === 0){
+	if(id != dupliId){
+		alert("아이디 중복 체크를 해주세요.");
+		return;
+	}
+
+	if(document.frm.dupliId.value.length === 0){
 		alert("아이디 중복 체크를 해주세요. ");
 		document.frm.id.focus();
 		return;

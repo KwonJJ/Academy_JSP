@@ -40,7 +40,6 @@ public class RegisterServlet extends HttpServlet {
 		cyMember.setPhone(phone);
 		cyMember.setIsAdmin(isAdmin);
 		
-		
 		try {
 			cymemberDAO.CreateMember(cyMember);
 			req.getSession().setAttribute("id", id);

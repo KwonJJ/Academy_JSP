@@ -51,6 +51,38 @@ public class memberDAO extends JDBConnect{
 			} else {
 				result = 0;
 			}
+			System.out.println("아이디 중복 확인 성공");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("아이디 중복 확인 실패");
+		}
+		
+		return result;
+	}
+	
+	public int CyworldLogin(String id, String pw) {
+		String CYWORLD_LOGIN_QUERY = "select password from member where id = ?";
+		
+		int result = 0;
+		
+		try {
+			psmt = con.prepareStatement(CYWORLD_LOGIN_QUERY);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				if(rs.getString("password").equals(pw)) {
+					result = 1;
+					
+				} else {
+					result = 0;
+				}
+				
+			} else {
+				result = -1;
+			}
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -58,4 +90,5 @@ public class memberDAO extends JDBConnect{
 		
 		return result;
 	}
+	
 }
