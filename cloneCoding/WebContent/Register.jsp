@@ -12,14 +12,19 @@
 </head>
 <body class="center-layout-column">
 	<div class="center-layout-column">
-		<img class="logo" alt="logo" src="./resources/image/싸이월드main.png" />
+		
+		<a href = "index.jsp">
+			<img class="logo" alt="logo" src="./resources/image/싸이월드main.png" />
+		</a>
+		
 		<div class="box center-layout-column">
 			<form action="RegisterServlet" method="post" name = "frm">
 				<div class="flex-between">
 					<label>아이디</label>
 					<div class="w-60 flex-between">
 						<input type="text" name="id" class = "w-70" maxlength="20" />
-						<button type="button" onclick="#">중복확인</button>
+						<input id="dupliId" type = "hidden" name = "dupliId" maxlength="20" />
+						<button type="button" onclick="idCheck()">중복확인</button>
 					</div>
 				</div>
 				<div class="flex-between">

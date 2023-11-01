@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.member;
 import model.memberDAO;
@@ -39,10 +40,17 @@ public class RegisterServlet extends HttpServlet {
 		cyMember.setPhone(phone);
 		cyMember.setIsAdmin(isAdmin);
 		
+		
 		try {
 			cymemberDAO.CreateMember(cyMember);
+			req.getSession().setAttribute("id", id);
+			resp.sendRedirect("RegisterSuccess.jsp");
+			
 		} catch(Exception e) {
 			e.printStackTrace();
+			resp.sendRedirect("error.jsp");
 		}
 	}
+	
+	
 }

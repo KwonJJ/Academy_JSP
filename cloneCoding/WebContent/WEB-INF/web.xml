@@ -17,4 +17,13 @@
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/RegisterServlet</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>idCheckServlet</servlet-name>
+		<servlet-class>controller.idCheckServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>idCheckServlet</servlet-name>
+		<url-pattern>/idCheckServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

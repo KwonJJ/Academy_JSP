@@ -34,4 +34,28 @@ public class memberDAO extends JDBConnect{
 		
 		return result;
 	}
+	
+	public int CheckDuplicateId (String id) throws SQLException {
+		String GET_MEMBER_SQL = "select id from member where id = ?";
+		
+		int result = 0;
+		
+		try {
+			psmt = con.prepareStatement(GET_MEMBER_SQL);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+			} else {
+				result = 0;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 }
