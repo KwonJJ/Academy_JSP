@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet{
 		HttpSession session = req.getSession();
 		
 		if(result == 1) {
-			session.setAttribute("loginuserid", id);
+			session.setAttribute("loginUserId", id);
 			resp.sendRedirect("home.jsp");
 			
 		} else if(result == 0) {
@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet{
 			 * 
 			 * }
 			 */
+		
 		
 	}
 }

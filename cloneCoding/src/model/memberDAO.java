@@ -90,5 +90,4 @@ public class memberDAO extends JDBConnect{
 		
 		return result;
 	}
-	
 }

@@ -20,7 +20,7 @@
 	String address = mr.getParameter("address");
 	String photoimage = mr.getFilesystemName("photoImage");
 	
-	File photoFile = new File(saveDirectory+File.separator + photoimage);
+	File photoFile = new File(saveDirectory + File.separator + photoimage);
 	
 	MemberDAO dao = new MemberDAO();
 		

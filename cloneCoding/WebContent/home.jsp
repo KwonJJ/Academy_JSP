@@ -11,8 +11,6 @@
 <title>싸이월드 미니홈피</title>
 </head>
 <body>
-	<h1>로그인 성공</h1>
-	
 	<div class = "container">
 		<div class = "left-box">
 			<div class = "box-radius-5 center">${loginUserId }님의 미니홈피</div>
@@ -41,6 +39,11 @@
 		</div>
 		
 		<div class = "right-box">
+		
+			<form action="LogoutServlet" method = "post">
+				<input type = "submit" value = "로그아웃">
+			</form>
+		
 			<div class = "box-radius-5 logo-wrapper">
 				<img class = "literal-logo" alt="cy-literal-logo" src="./resources/image/Cyworld-literal.svg">
 			</div>

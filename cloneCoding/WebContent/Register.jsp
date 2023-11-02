@@ -67,6 +67,11 @@
 						<input type="radio" name="grant" value="admin"/> 관리자
 					</div>
 				</div>
+				
+				<div class = "flex-between">
+						이미지 추가 : <input type = "file" name = "imgName">
+				</div>
+				
 				<div class="btn-wrapper">
 					<input type = "button" value = "회원가입" onclick = "registerCheck()" />
 				</div>
