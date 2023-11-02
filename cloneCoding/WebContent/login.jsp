@@ -29,7 +29,14 @@
 					<input type="password" name="pw" />
 				</div>
 				
-				<p>${message }</p>
+				<%-- <p>${message }</p> --%>
+				<%
+					String message = (String) session.getAttribute("message");
+					if(message != null) {
+						out.print("<p>" + message + "</p>");
+						session.removeAttribute("message");
+					}
+				%>
 				
 				<div class = "right">
 				<button type="submit">로그인</button>
