@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet{
 		
 		if(result == 1) {
 			session.setAttribute("loginUserId", id);
-			resp.sendRedirect("home.jsp");
+			resp.sendRedirect("home.jsp?id=" + id);
 			
 		} else if(result == 0) {
 			session.setAttribute("message", "비밀번호가 맞지 않습니다.");

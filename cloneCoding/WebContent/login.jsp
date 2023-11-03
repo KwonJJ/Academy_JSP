@@ -45,7 +45,7 @@
 			</form>
 			
 			<p class = "register right">
-				계정이 없으신가요?<a href="Register" class="point">회원가입</a>
+				계정이 없으신가요?<a href="Register.jsp" class="point">회원가입</a>
 			</p>
 		</div>
 	</div>

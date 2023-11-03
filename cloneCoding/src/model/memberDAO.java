@@ -11,8 +11,8 @@ public class memberDAO extends JDBConnect{
 	}
 	
 	public int CreateMember(member cyMember) throws ClassNotFoundException {
-		String INSERT_MEMBER_SQL = "insert into member" + "(id, password, email, phone, isAdmin) "
-								+ "values (?, ?, ?, ?, ?)";
+		String INSERT_MEMBER_SQL = "insert into member" + "(id, password, email, phone, isAdmin, imgName) "
+								+ "values (?, ?, ?, ?, ?, ?)";
 		
 		int result = 0;
 		
@@ -23,6 +23,7 @@ public class memberDAO extends JDBConnect{
 			psmt.setString(3, cyMember.getEmail());
 			psmt.setString(4, cyMember.getPhone());
 			psmt.setString(5, cyMember.getIsAdmin());
+			psmt.setString(6, cyMember.getImgName());
 			
 			result = psmt.executeUpdate();
 			System.out.println("회원가입 성공");
@@ -89,5 +90,34 @@ public class memberDAO extends JDBConnect{
 		}
 		
 		return result;
+	}
+	
+	public member getMember(String id) {
+		
+		member dto = new member();
+		
+		String GET_MEMBER_ID = "select * from member where id = ?";
+		
+		try {
+			
+			psmt = con.prepareStatement(GET_MEMBER_ID);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setId(rs.getString(1));
+				dto.setPassword(rs.getString(2));
+				dto.setPhone(rs.getString(3));
+				dto.setEmail(rs.getString(4));
+				dto.setIsAdmin(rs.getString(5));
+				dto.setImgName(rs.getString(6));
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return dto;
 	}
 }

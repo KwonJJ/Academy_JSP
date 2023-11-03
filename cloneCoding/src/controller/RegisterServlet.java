@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
 
 import model.member;
 import model.memberDAO;
@@ -27,11 +28,19 @@ public class RegisterServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
-		String email = req.getParameter("email") + "@" + req.getParameterValues("com")[0];
-		String phone = req.getParameterValues("phone-1")[0] + "-" + req.getParameter("phone-2") + "-" + req.getParameter("phone-3");
-		String isAdmin = req.getParameter("grant");
+		
+		String saveDirectory = req.getSession().getServletContext().getRealPath("./resources/image");
+		int maxPostSize = 1024 * 1024 * 5;
+		String encoding = "utf-8";
+		
+		MultipartRequest mr = new MultipartRequest(req, saveDirectory, maxPostSize, encoding);
+		
+		String id = mr.getParameter("id");
+		String pw = mr.getParameter("pw");
+		String email = mr.getParameter("email") + "@" + mr.getParameterValues("com")[0];
+		String phone = mr.getParameterValues("phone-1")[0] + "-" + mr.getParameter("phone-2") + "-" + mr.getParameter("phone-3");
+		String isAdmin = mr.getParameter("grant");
+		String imgName = mr.getOriginalFileName("imgName");
 		
 		member cyMember = new member();
 		
@@ -40,6 +49,7 @@ public class RegisterServlet extends HttpServlet {
 		cyMember.setEmail(email);
 		cyMember.setPhone(phone);
 		cyMember.setIsAdmin(isAdmin);
+		cyMember.setImgName(imgName);
 		
 		try {
 			cymemberDAO.CreateMember(cyMember);

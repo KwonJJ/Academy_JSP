@@ -1,3 +1,5 @@
+<%@page import="model.member"%>
+<%@page import="model.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,6 +8,11 @@
 <link rel="stylesheet" href="./resources/css/layout.css">
 <link rel = "stylesheet" href = "./resources/css/home.css">
 <script type="text/javascript" src = "./resources/js/home.js"></script>
+<%
+	memberDAO dao = new memberDAO();
+	String id = request.getParameter("id");
+	member dto = dao.getMember(id);
+%>
 <head>
 <meta charset="UTF-8">
 <title>싸이월드 미니홈피</title>
@@ -16,7 +23,7 @@
 			<div class = "box-radius-5 center">${loginUserId }님의 미니홈피</div>
 			<div class = "box-radius-5 center">today 222 | Total 1111</div>
 			<div class = "box-radius-5 center-layout-column" style = "padding: 10px">
-				<img class = "profile" alt="profile" src="https://economist.co.kr/data/ecn/image/2022/04/21/ecn8e4a018b-0308-4d22-88ff-ebb264dca1fd.jpg">
+				<img class = "profile" alt="profile" src="./resources/image/<%=dto.getImgName() %>">
 				
 				<div class = "dot-line"></div>
 				

@@ -18,11 +18,11 @@
 		</a>
 		
 		<div class="box center-layout-column">
-			<form action="RegisterServlet" method="post" name = "frm">
+			<form action="RegisterServlet" method="post" name = "frm" enctype = "multipart/form-data">
 				<div class="flex-between">
 					<label>아이디</label>
 					<div class="w-60 flex-between">
-						<input type="text" name="id" class = "w-70" maxlength="20" />
+						<input type="text" name="id" class = "w-70" maxlength="20"/>
 						<input id="dupliId" type = "hidden" name = "dupliId" maxlength="20" />
 						<button type="button" onclick="idCheck()">중복확인</button>
 					</div>
@@ -69,12 +69,13 @@
 				</div>
 				
 				<div class = "flex-between">
-						이미지 추가 : <input type = "file" name = "imgName">
+						사진 추가 : <input type = "file" name = "imgName">
 				</div>
-				
+
 				<div class="btn-wrapper">
 					<input type = "button" value = "회원가입" onclick = "registerCheck()" />
 				</div>
+				
 			</form>
 		</div>
 	</div>
