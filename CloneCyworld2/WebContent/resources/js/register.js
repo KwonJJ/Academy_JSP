@@ -36,5 +36,30 @@ function registerCheck() {
 		return false;
 	}
 	
+	// id, dupliId 동일한지 체크
+	if(id != document.frm.dupliId.value) {
+		alert("아이디 중복 체크를 다시 해주세요.");
+		document.frm.id.focus();
+		return;
+	}
+	
+	if(document.frm.dupliId.value.length === 0) {
+		alert("아이디 중복 체크를 해주세요.");
+		document.frm.id.focus();
+		return;
+	}
+	
 	document.frm.submit();
+}
+
+function idCheck() {
+	var url = "IdCheckServlet?id=" + document.frm.id.value;
+	window.open(url, "_blank",
+	"scrollbars=yes, width=450, height=200");
+}
+
+function idOk() {
+	opener.frm.id.value=document.idCheckForm.id.value;
+	opener.frm.dupliId.value=document.idCheckForm.id.value;
+	self.close();
 }

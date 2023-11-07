@@ -6,17 +6,17 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./resources/css/layout.css" />
 <link rel="stylesheet" href="./resources/css/index.css" />
-<title>홈</title>
-</head>
+<title>회원가입 성공</title>
+<%
+	String id = (String) session.getAttribute("id");
+%>
+</head>	
 <body class="center-layout-column">
-	<div class="center-layout-column">
-		<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
-		<h3>클론코딩 - 싸이월드에 오신것을 환영합니다 !</h3>
-		<div>
-			<a href="login.jsp" class="point">로그인</a>
-			<a href="Register.jsp">회원가입</a>
-		</div>
-	</div>
+	<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
+	<h2><%=id%>님 환영합니다.</h2>
+	<button onclick="location.href='login.jsp';">
+		로그인페이지로
+	</button>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

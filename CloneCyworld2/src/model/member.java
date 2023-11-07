@@ -1,7 +1,7 @@
 package model;
 
 public class member {
-	private String Id, Password, Phone, Email, isAdmin;
+	private String Id, Password, Phone, Email, isAdmin, imgName;
 
 	public String getId() {
 		return Id;
@@ -43,4 +43,11 @@ public class member {
 		this.isAdmin = isAdmin;
 	}
 	
+	public String getImgName() {
+		return imgName;
+	}
+
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
+	}
 }

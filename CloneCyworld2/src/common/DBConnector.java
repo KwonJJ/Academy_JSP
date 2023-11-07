@@ -19,7 +19,7 @@ public class DBConnector {
 			Class.forName("com.mysql.jdbc.Driver");
 			// com.mysql.jdbc.Driver    mysql 드라이버 이름
 			
-			String url="jdbc:mysql://localhost:3306/cyworld";  // db 접속 주소
+			String url="jdbc:mysql://localhost:3306/cyworld?useUnicode=true&characterEncoding=utf8&useSSL=false";  // db 접속 주소
 			String id="manager";   // 사용자 계정 아이디
 			String pwd="1234";    // 계정 비밀번호
 			con = DriverManager.getConnection(url,id,pwd);  

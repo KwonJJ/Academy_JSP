@@ -1,11 +1,15 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.member;
 import model.memberDAO;
@@ -25,12 +29,26 @@ public class RegisterServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
-		String email = req.getParameter("email") + "@" + req.getParameterValues("com")[0];
-		String phone = req.getParameterValues("phone-1")[0] +
-				"-" + req.getParameter("phone-2") + "-" + req.getParameter("phone-3");
-		String isAdmin = req.getParameter("grant");
+		req.setCharacterEncoding("UTF-8");
+		String realFolder = req.getServletContext().getRealPath("/resources/img");
+		String realFolder2 = "C:\\jsp\\CloneCyworld2\\WebContent\\resources\\img";
+		System.out.println(realFolder);
+		resp.setContentType("text/html; charset=UTF-8");
+		int maxSize = 5 * 1024 * 1024;
+		String encType = "UTF-8";
+		
+		MultipartRequest mr = new MultipartRequest(req, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+		
+		String id = mr.getParameter("id");
+		String pw = mr.getParameter("pw");
+		String email = mr.getParameter("email") + "@" + mr.getParameterValues("com")[0];
+		String phone = mr.getParameterValues("phone-1")[0] +
+				"-" + mr.getParameter("phone-2") + "-" + mr.getParameter("phone-3");
+		String isAdmin = mr.getParameter("grant");
+		
+		Enumeration files = mr.getFileNames();
+		String imgName = (String) files.nextElement();
+		String fileName = mr.getFilesystemName(imgName);
 		
 		member cyMember = new member();
 		cyMember.setId(id);
@@ -38,12 +56,15 @@ public class RegisterServlet extends HttpServlet {
 		cyMember.setEmail(email);
 		cyMember.setPhone(phone);
 		cyMember.setIsAdmin(isAdmin);
+		cyMember.setImgName(fileName);
 		
 		try {
 			cymemberDAO.CreateMember(cyMember);
-			
+			req.getSession().setAttribute("id", id);
+			resp.sendRedirect("RegisterSuccess.jsp");
 		} catch (Exception e) {
-			
+			e.printStackTrace();
+			resp.sendRedirect("error.jsp");
 		}
 	}
 }

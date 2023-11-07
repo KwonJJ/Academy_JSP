@@ -14,12 +14,13 @@
 	<div class="center-layout-column">
 		<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
 		<div class="box center-layout-column">
-			<form action="RegisterServlet" method="post" name="frm">
+			<form action="RegisterServlet" method="post" name="frm" enctype="multipart/form-data">
 				<div class="flex-between">
 					<label>아이디</label>
 					<div class="w-60 flex-between">
 						<input class="w-70" type="text" name="id" maxlength="20" />
-						<button type="button" onclick="#">중복확인</button>
+						<input type="hidden" name="dupliId" maxlength="20" />
+						<button type="button" onclick="idCheck()">중복확인</button>
 					</div>
 				</div>
 				<div class="flex-between">
@@ -30,7 +31,6 @@
 					<label>비밀번호 확인</label>
 					<input class="w-60" type="password" name="pwcheck" maxlength="8"/>
 				</div>
-				<p></p>
 				<div class="email-wrapper flex-between">
 					<label>이메일</label>
 					<div class="w-60 flex-between">
@@ -60,6 +60,12 @@
 					<div class="w-60">
 						<input type="radio" name="grant" value="common"/> 일반
 						<input type="radio" name="grant" value="admin"/> 관리자
+					</div>
+				</div>
+				<div class="flex-between">
+					<label>사진</label>
+					<div>
+						<input type="file" name="imgName" />
 					</div>
 				</div>
 				<div class="btn-wrapper">
