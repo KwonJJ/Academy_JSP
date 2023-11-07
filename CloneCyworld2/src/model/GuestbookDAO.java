@@ -54,9 +54,24 @@ public class GuestbookDAO extends DBConnector {
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return userGuestBookList;
+	}
+	
+	public void addGuestbookReply(int b_no, String id, String content) {
+		try {
+			String ADD_GUESTBOOK_REPLY = "insert into guestbookReply(b_no, id, created, content) VALUES (?, ?, now(), ?)";
+			psmt = con.prepareStatement(ADD_GUESTBOOK_REPLY);
+			
+			psmt.setInt(1, b_no);
+			psmt.setString(2, id);
+			psmt.setString(3, content);
+			psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

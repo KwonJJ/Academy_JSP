@@ -1,3 +1,4 @@
+<%@page import="model.GuestbookReply"%>
 <%@page import="model.Guestbook"%>
 <%@page import="java.util.List"%>
 <%@page import="model.GuestbookDAO"%>
@@ -28,7 +29,7 @@
 			<form action="GuestbookServlet" method="post">
 				<input type="hidden" name="owner_id" value=<%=owner_id%> />
 				<div>
-					<img alt="profile-img-${loginUserId}" src="./resources/img/<%=user.getImgName()%>">
+					<img alt="profile-img-${loginUserId}" src="./resources/img/<%=user.getImgName()%>" style = "width : 200px; height : 200px;">
 				</div>
 				<div>
 					<input type="text" name="content" />
@@ -36,12 +37,23 @@
 				<button type="submit">등록</button>
 			</form>
 		</c:if>
+	
 		<c:forEach var="guestbookDTO" items="<%=guestbooklist%>" varStatus="i">
 			<div style="border: 1px solid black;"> NO.${guestbookList.size()-i.index }
 				<div>${guestbookDTO.id}</div>
-				<img src="./resources/img/${guestbookDTO.imgName}" />
+				<img src="./resources/img/${guestbookDTO.imgName}" style = "width : 200px; height : 200px;"/>
 				<div>${guestbookDTO.content}</div>
 				<div>${guestbookDTO.created}</div>
+				
+				<form action="GuestbookReplyServlet" method = "post">
+					<input type = "hidden" name = "b_no" value = "${guestbookDTO.no}">
+					<input type = "hidden" name = "id" value = "<%=owner_id%>">
+					
+					<div>
+						<input type = "text" name = "content">
+					</div>
+					<button type = "submit">댓글 작성</button>
+				</form>
 			</div>
 		</c:forEach>
 	</div>

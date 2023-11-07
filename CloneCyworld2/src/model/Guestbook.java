@@ -9,7 +9,7 @@ public class Guestbook {
 	}
 
 	public void setNo(Integer no) {
-		this.no = no;	
+		this.no = no;
 	}
 
 	public String getId() {
@@ -43,7 +43,7 @@ public class Guestbook {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	public String getImgName() {
 		return imgName;
 	}
@@ -51,4 +51,5 @@ public class Guestbook {
 	public void setImgName(String imgName) {
 		this.imgName = imgName;
 	}
+
 }
