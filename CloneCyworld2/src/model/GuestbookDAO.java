@@ -74,4 +74,32 @@ public class GuestbookDAO extends DBConnector {
 			e.printStackTrace();
 		}
 	}
+	
+	public List<GuestbookReply> selectReply(int b_no) {
+		List<GuestbookReply> list = new ArrayList<>();
+		
+		try {
+			String SELECT_REPLY = "select * from guestbookReply where b_no = ?";
+			
+			psmt = con.prepareStatement(SELECT_REPLY);
+			
+			psmt.setInt(1, b_no);
+			
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				GuestbookReply dto = new GuestbookReply();
+				dto.setR_no(rs.getInt(1));
+				dto.setB_no(rs.getInt(2));
+				dto.setId(rs.getString(3));
+				dto.setCreated(rs.getString(4));
+				dto.setContent(rs.getString(5));
+				
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 }

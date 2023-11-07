@@ -21,7 +21,6 @@
 					document.querySelector("#photo-container").innerHTML = "";
 					document.querySelector("#photo-container").appendChild(img);
 				}
-
 				reader.readAsDataURL(file);
 			}
 		}

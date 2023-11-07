@@ -26,7 +26,8 @@
 <body>
 	<div> 
 		<c:if test="${loginUserId ne param.id}">
-			<form action="GuestbookServlet" method="post">
+			<form action="Guestbook
+			Servlet" method="post">
 				<input type="hidden" name="owner_id" value=<%=owner_id%> />
 				<div>
 					<img alt="profile-img-${loginUserId}" src="./resources/img/<%=user.getImgName()%>" style = "width : 200px; height : 200px;">
@@ -54,6 +55,18 @@
 					</div>
 					<button type = "submit">댓글 작성</button>
 				</form>
+				<%
+					Guestbook dt = (Guestbook)pageContext.getAttribute("guestbookDTO");
+					int no = dt.getNo();
+					List<GuestbookReply> replyList = guestbookDAO.selectReply(no);
+				%>
+				<div>
+					<c:forEach var = "reply" items = "<%=replyList %>">
+						<p>${reply.id }</p>
+						<p>${reply.created }</p>
+						<p>${reply.content }</p>
+					</c:forEach>
+				</div>
 			</div>
 		</c:forEach>
 	</div>

@@ -49,4 +49,12 @@
     <servlet-name>GuestbookServlet</servlet-name>
     <url-pattern>/GuestbookServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>GuestbookReplyServlet</servlet-name>
+    <servlet-class>controller.GuestbookReplyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GuestbookReplyServlet</servlet-name>
+    <url-pattern>/GuestbookReplyServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
