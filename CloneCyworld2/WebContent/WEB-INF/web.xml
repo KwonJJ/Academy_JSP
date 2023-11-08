@@ -9,60 +9,77 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>controller.RegisterServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/RegisterServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>IdCheckServlet</servlet-name>
-    <servlet-class>controller.IdCheckServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>IdCheckServlet</servlet-name>
-    <url-pattern>/IdCheckServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>controller.LoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>controller.LogoutServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/LogoutServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>GuestbookServlet</servlet-name>
-    <servlet-class>controller.GuestbookServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GuestbookServlet</servlet-name>
-    <url-pattern>/GuestbookServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>GuestbookReplyServlet</servlet-name>
-    <servlet-class>controller.GuestbookReplyServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GuestbookReplyServlet</servlet-name>
-    <url-pattern>/GuestbookReplyServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>GuestbookDeleteServlet</servlet-name>
-    <servlet-class>controller.GuestbookDeleteServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GuestbookDeleteServlet</servlet-name>
-    <url-pattern>/GuestbookDeleteServlet</url-pattern>
-  </servlet-mapping>
+  
+	<servlet>
+    	<servlet-name>RegisterServlet</servlet-name>
+    	<servlet-class>controller.RegisterServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/RegisterServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>IdCheckServlet</servlet-name>
+		<servlet-class>controller.IdCheckServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IdCheckServlet</servlet-name>
+		<url-pattern>/IdCheckServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>controller.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+	<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GuestbookServlet</servlet-name>
+		<servlet-class>controller.GuestbookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GuestbookServlet</servlet-name>
+		<url-pattern>/GuestbookServlet</url-pattern>
+	</servlet-mapping>
+  
+
+	<servlet>
+		<servlet-name>GuestbookReplyServlet</servlet-name>
+		<servlet-class>controller.GuestbookReplyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GuestbookReplyServlet</servlet-name>
+		<url-pattern>/GuestbookReplyServlet</url-pattern>
+		</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>GuestbookDeleteServlet</servlet-name>
+		<servlet-class>controller.GuestbookDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GuestbookDeleteServlet</servlet-name>
+		<url-pattern>/GuestbookDeleteServlet</url-pattern>
+	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>GuestbookReplyDeleteServlet</servlet-name>
+		<servlet-class>controller.GuestbookReplyDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GuestbookReplyDeleteServlet</servlet-name>
+		<url-pattern>/GuestbookReplyDeleteServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

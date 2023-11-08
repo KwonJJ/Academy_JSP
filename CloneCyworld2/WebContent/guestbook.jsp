@@ -76,6 +76,15 @@
 							<p>작성 일자 : ${reply.created }</p>
 							<p>댓글 : ${reply.content }</p>
 						</div>
+						
+						<c:if test="${loginUserId eq param.id || loginUserId eq owner_id}">
+							<form action="GuestbookReplyDeleteServlet" method="post">
+								<input type="hidden" name="deleteR_no" value="${reply.r_no}">
+								<input type="hidden" name="r_no" value="${guestbookDTO.no}">
+								<input type="hidden" name="id" value="<%=owner_id%>">
+								<button type="submit" class="button delete_Reply-btn" data-r_no = "{reply.r_no}">댓글 삭제</button>
+							</form>
+						</c:if>
 					</c:forEach>
 				</div>
 			</div>
