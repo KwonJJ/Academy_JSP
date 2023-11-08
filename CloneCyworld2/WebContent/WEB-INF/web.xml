@@ -57,4 +57,12 @@
     <servlet-name>GuestbookReplyServlet</servlet-name>
     <url-pattern>/GuestbookReplyServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>GuestbookDeleteServlet</servlet-name>
+    <servlet-class>controller.GuestbookDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GuestbookDeleteServlet</servlet-name>
+    <url-pattern>/GuestbookDeleteServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

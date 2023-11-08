@@ -70,7 +70,7 @@
 							</a>
 							
 							<a class="menu" href="./guestbook.jsp?id=<%=user.getId()%>">
-								방명록
+							방명록
 							</a>
 						</div>
 					</div>

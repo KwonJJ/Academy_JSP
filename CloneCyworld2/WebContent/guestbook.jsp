@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="./resources/css/layout.css" />
 <link rel="stylesheet" href="./resources/css/index.css" />
 <link rel="stylesheet" href="./resources/css/guestbook.css" />
+<script type="text/javascript" src="./resources/js/guestbook.js"></script>
 <%
 	String owner_id = request.getParameter("id");
 	memberDAO cyMemberDAO = new memberDAO();
@@ -24,47 +25,57 @@
 <title>방명록</title>
 </head>
 <body>
-	<div> 
+	<div class = "container"> 
 		<c:if test="${loginUserId ne param.id}">
-			<form action="Guestbook
-			Servlet" method="post">
+			<form action="GuestbookServlet" method="post">
 				<input type="hidden" name="owner_id" value=<%=owner_id%> />
 				<div>
 					<img alt="profile-img-${loginUserId}" src="./resources/img/<%=user.getImgName()%>" style = "width : 200px; height : 200px;">
 				</div>
-				<div>
-					<input type="text" name="content" />
+				<div style = "display: flex; padding-top: 5px; padding-bottom: 10px;">
+					<input type="text" name="content"/>
+					<button type="submit" class = "button">방명록 등록</button>
 				</div>
-				<button type="submit">등록</button>
 			</form>
 		</c:if>
 	
 		<c:forEach var="guestbookDTO" items="<%=guestbooklist%>" varStatus="i">
-			<div style="border: 1px solid black;"> NO.${guestbookList.size()-i.index }
-				<div>${guestbookDTO.id}</div>
+			<div class = "post" style="border: 1px solid black; background-color: #D5D5D5"> NO.${guestbookList.size()-i.index }
+				<div class = "post-content"> 작성자 : ${guestbookDTO.id}</div>
 				<img src="./resources/img/${guestbookDTO.imgName}" style = "width : 200px; height : 200px;"/>
-				<div>${guestbookDTO.content}</div>
-				<div>${guestbookDTO.created}</div>
+				<div class = "post-content"> 작성글 : ${guestbookDTO.content}</div>
+				<div class = "post-content"> 작성 일자 : ${guestbookDTO.created}</div>
 				
-				<form action="GuestbookReplyServlet" method = "post">
+				<form action="GuestbookReplyServlet" method = "post" style = "display: flex;">
 					<input type = "hidden" name = "b_no" value = "${guestbookDTO.no}">
 					<input type = "hidden" name = "id" value = "<%=owner_id%>">
 					
 					<div>
-						<input type = "text" name = "content">
+						<input type = "text" name = "content" style = "padding: 10px;">
 					</div>
-					<button type = "submit">댓글 작성</button>
+						<button class = "button" type = "submit">댓글 작성</button>
 				</form>
+				
+				<c:if test="${loginUserId eq param.id || loginUserId eq owner_id }">
+					<form action="GuestbookDeleteServlet" method = "post" style = "padding:10px;">
+						<input type = "hidden" name = "deleteNo" value = "${guestbookDTO.no }">
+						<input type = "hidden" name = "id" value = "<%=owner_id%>">
+						<button type = "submit" class = "button delete-btn" data-no = "{guestbookDTO.no}">게시글 삭제</button>
+					</form>
+				</c:if>
+				
 				<%
 					Guestbook dt = (Guestbook)pageContext.getAttribute("guestbookDTO");
 					int no = dt.getNo();
 					List<GuestbookReply> replyList = guestbookDAO.selectReply(no);
 				%>
-				<div>
+				<div class = "comment">
 					<c:forEach var = "reply" items = "<%=replyList %>">
-						<p>${reply.id }</p>
-						<p>${reply.created }</p>
-						<p>${reply.content }</p>
+						<div class = "comment-border">
+							<p>작성자 : ${reply.id }</p>
+							<p>작성 일자 : ${reply.created }</p>
+							<p>댓글 : ${reply.content }</p>
+						</div>
 					</c:forEach>
 				</div>
 			</div>

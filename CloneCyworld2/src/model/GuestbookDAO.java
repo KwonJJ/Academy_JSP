@@ -75,6 +75,19 @@ public class GuestbookDAO extends DBConnector {
 		}
 	}
 	
+	public void deleteGuestbook(int no) {
+		String DELETE_GUESTBOOK = "delete from guestbook where no = ?";
+		
+		try {
+			psmt = con.prepareStatement(DELETE_GUESTBOOK);
+			psmt.setInt(1, no);
+			psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public List<GuestbookReply> selectReply(int b_no) {
 		List<GuestbookReply> list = new ArrayList<>();
 		
@@ -101,5 +114,19 @@ public class GuestbookDAO extends DBConnector {
 		}
 		
 		return list;
+	}
+	
+	public void ReplyDelete(int r_no) {
+		String GUESYBOOKREPLY_DELETE = "delete from guestbookReply where r_no = ?";
+		try {
+
+			psmt = con.prepareStatement(GUESYBOOKREPLY_DELETE);
+			psmt.setInt(1, r_no);
+			psmt.executeUpdate();
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

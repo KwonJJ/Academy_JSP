@@ -43,5 +43,6 @@ public class GuestbookServlet extends HttpServlet {
 		
 		guestbookDAO.InsertGuestbook(guestbook, loginUserId);
 		resp.sendRedirect("guestbook.jsp?id=" + owner_id);
+		
 	}
 }
