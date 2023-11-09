@@ -82,4 +82,5 @@
 		<servlet-name>GuestbookReplyDeleteServlet</servlet-name>
 		<url-pattern>/GuestbookReplyDeleteServlet</url-pattern>
 	</servlet-mapping>
+		
 </web-app>

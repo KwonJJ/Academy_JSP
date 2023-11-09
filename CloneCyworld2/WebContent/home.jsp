@@ -65,7 +65,7 @@
 						</div>
 						
 						<div class="menu-wrapper" style="display: flex">
-							<a class="menu" href= "./photo.jsp?id=<%=user.getId()%>">
+							<a class="menu" href= "./photoGallery.jsp?id=<%=user.getId()%>">
 							사진첩
 							</a>
 							

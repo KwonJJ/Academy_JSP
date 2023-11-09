@@ -2,8 +2,10 @@
 
 .container {
 	display: flex;
+	justify-content: space-between;
 	width: 1200px;
 	height: 800px;
+	margin: 0 auto;
 }
 
 .container .left-box {
@@ -16,8 +18,10 @@
 
 .profile {
 	border: 1px solid #171717;
-	width: 65%;
-	height: inherit;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 50%;
 }
 
 .box-radius-5 {
@@ -29,6 +33,7 @@
 .dot-line {
 	border-bottom: 1px dotted gray;
 	width: 100%;
+	height: 50px;
 	margin: 20px 0;
 }
 
@@ -36,6 +41,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: 90%;
+	margin-top: 20px;
 }
 
 .right-box-content .menu {
@@ -55,6 +61,7 @@
 
 .logo-wrapper {
 	width: 50%;
+	height: auto;
 	padding: 15px;
 }
 
@@ -73,4 +80,24 @@
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
+}
+
+.big-img {
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+}
+
+.menu {
+	flex: 1;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid #000;
+	margin: 5px;
+	text-decoration: none;
+	color: #000;
+}
+
+.menu-wrapper {
+	margin-bottom: 10px;
 }
