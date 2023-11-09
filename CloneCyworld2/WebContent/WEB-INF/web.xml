@@ -83,4 +83,13 @@
 		<url-pattern>/GuestbookReplyDeleteServlet</url-pattern>
 	</servlet-mapping>
 		
+	<servlet>
+		<servlet-name>photoGalleryServlet</servlet-name>
+		<servlet-class>controller.photoGalleryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>photoGalleryServlet</servlet-name>
+		<url-pattern>/photoGalleryServlet</url-pattern>
+	</servlet-mapping>
+		
 </web-app>
