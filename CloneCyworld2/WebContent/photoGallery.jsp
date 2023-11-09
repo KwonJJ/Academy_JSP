@@ -18,16 +18,10 @@
 <link rel="stylesheet" href="./resources/css/guestbook.css" />
 <script type="text/javascript" src="./resources/js/guestbook.js"></script>
 <%
-	String owner_id = request.getParameter("id");
-	memberDAO cyMemberDAO = new memberDAO();
-	member user = cyMemberDAO.GetMember(owner_id);
-	GuestbookDAO guestbookDAO = new GuestbookDAO();
-	List<Guestbook> guestbooklist = guestbookDAO.GetUserGuestbookList(owner_id);
-	
-	
 	String p_id = request.getParameter("id");
+	memberDAO cyMemberDAO = new memberDAO();
+	member user = cyMemberDAO.GetMember(p_id);
 	photoGalleryDAO photoDAO = new photoGalleryDAO();
-	photoGallery user_photo = photoDAO.getPhoto(p_id);
 	List<photoGallery> photoList = photoDAO.GetUserPhotoList(p_id);
 %>
 <title>사진첩</title>
@@ -69,7 +63,6 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div>
 	</div>
 </body>
 </html>
