@@ -17,8 +17,9 @@
 %>
 <title><%=user.getId()%>님의 미니홈피</title>
 </head>
-<body>
-	<div class="container">
+<body style = "background-image: url('./resources/img/싸이월드body배경.png');">
+<div class = "container-1" style = "background-image: url('./resources/img/싸이월드 전체 배경.png');">
+	<div class="container-2">
 		<div class="left-box">
 			<div class="box-radius-5 center"><%=user.getId()%>님의 미니홈피</div>
 			<div class="box-radius-5 center">Today 222 | Total 1111</div>
@@ -43,7 +44,7 @@
 		
 		<div class="right-box">
 			<form action="LogoutServlet" method="post">
-				<input type="submit" value="로그아웃" />
+				<input type="submit" value="로그아웃" class = "logout-btn"/>
 			</form>
 			<div class="box-radius-5 logo-wrapper">
 				<img class="literal-logo" alt="cy-literal-logo" src="./resources/img/Cyworld-literal.svg" />
@@ -79,5 +80,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

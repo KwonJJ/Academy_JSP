@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.container{
+	background-image: url('../img/싸이월드 전체 배경.png');
+}
+
+.box {
+	border: 3px solid lightgoldenrodyellow;
+	border-radius: 5px;
+	padding: 20px;
+	width: 300px;
+	box-sizing: content-box;
+	background-color: lightskyblue;
+	font-size: larger;
+}
+
+.box button {
+	background-color: #BDFF12;
+	padding: 10px 50px;
+	margin: 5%;
+	border-radius: 20px;
+	font-size: inherit;
+	font-weight: bold;
+	border: none;
+}
+
+.box button:hover{
+	background-color: yellow;
+}
+
+.box .input-wrapper {
+	width: inherit;
+	display: flex;
+	justify-content: space-between;
+}
+
+.box .input-wrapper+.input-wrapper {
+	margin-top: 10px;
+}
+
+.register {
+	width: 100%;
+	margin-top: 10px;
+	background-color: navajowhite;
+	font-size: larger;
+}

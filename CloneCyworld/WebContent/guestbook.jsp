@@ -24,7 +24,7 @@
 %>
 <title>방명록</title>
 </head>
-<body>
+<body class = "center-layout-column">
 	<div class = "container"> 
 		<c:if test="${loginUserId ne param.id}">
 			<form action="GuestbookServlet" method="post">

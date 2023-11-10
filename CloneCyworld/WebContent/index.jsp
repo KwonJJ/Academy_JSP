@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./resources/css/index.css" />
 <title>홈</title>
 </head>
-<body class="center-layout-column">
+<body class="center-layout-column" style = "background-image: url('./resources/img/싸이월드body배경.png');">
 	<div class="center-layout-column">
 		<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
 		<h3>클론코딩 - 싸이월드에 오신것을 환영합니다 !</h3>

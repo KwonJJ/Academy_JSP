@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="./resources/css/layout.css" />
 <link rel="stylesheet" href="./resources/css/index.css" />
 <link rel="stylesheet" href="./resources/css/guestbook.css" />
+<link rel="stylesheet" href="./resources/css/photo.css" />
 <script type="text/javascript" src="./resources/js/guestbook.js"></script>
 <%
 	String p_id = request.getParameter("id");
@@ -26,24 +27,24 @@
 %>
 <title>사진첩</title>
 </head>
-<body>
+<body class = "center-layout-column">
 	<div class = "container"> 
-			<form action="photoGalleryServlet" method="post" name = "frm" enctype = "multipart/form-data">
+			<form action="photoGalleryServlet" method="post" name = "frm" enctype = "multipart/form-data" class = "frm-container">
 				<input type="hidden" name="id" value=<%=p_id%> />
 				<div>
-					<img alt="profile-img-${loginUserId}" src="./resources/img/<%=user.getImgName()%>" style = "width : 200px; height : 200px;">
+					<img class = "image" alt="profile-img-${loginUserId}" src="./resources/img/<%=user.getImgName()%>" style = "width : 200px; height : 200px;">
 				</div>
 				
-				<div>
+				<div class = "content">
 					제목 입력 : <input type = "text" name = "title">
 				</div>
 				
-				<div>
+				<div class= "content">
 					글 입력 : <input type = "text" name = "content">
 				</div>
 			
 				<div>
-					<input type = "file" name = "image">
+					<input type = "file" name = "image" class = "button">
 				</div>
 				
 				<div style = "display: flex; padding-top: 5px; padding-bottom: 10px;">

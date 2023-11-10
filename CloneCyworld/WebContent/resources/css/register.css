@@ -1,4 +1,14 @@
 @charset "UTF-8";
+
+.register{
+	background-image: url('../img/회원가입 배경.jpg');
+}
+
+.re_input{
+	padding: 5px;
+	background-color: lightyellow;
+}
+
 .box {
 	width: 400px;
 	border: 1px solid black;
@@ -9,6 +19,7 @@
 .flex-between {
 	display: flex;
 	justify-content: space-between;
+	font-size: large;
 }
 
 .w-70 {
@@ -39,4 +50,18 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 30px;
+}
+
+.re-button {
+    display: flex;
+    padding: 7px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

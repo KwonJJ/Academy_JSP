@@ -3,12 +3,13 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #B4FFFF;
+    height: inherit;
 }
 
 .container {
-    max-width: 800px;
+    width: 60%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 3%;
     background-color: #6CFFFF;
 }
 

@@ -12,31 +12,33 @@
 </head>
 <body class="center-layout-column">
 	<div class="center-layout-column">
-		<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
-		<div class="box center-layout-column">
+		<a href = "login.jsp">
+			<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
+		</a>
+		<div class="box center-layout-column register">
 			<form action="RegisterServlet" method="post" name="frm" enctype="multipart/form-data">
 				<div class="flex-between">
 					<label>아이디</label>
 					<div class="w-60 flex-between">
-						<input class="w-70" type="text" name="id" maxlength="20" />
+						<input class="w-70 re_input" type="text" name="id" maxlength="20" />
 						<input type="hidden" name="dupliId" maxlength="20" />
 						<button type="button" onclick="idCheck()">중복확인</button>
 					</div>
 				</div>
 				<div class="flex-between">
 					<label>비밀번호</label>
-					<input class="w-60" type="password" name="pw" maxlength="8"/>
+					<input class="w-60 re_input" type="password" name="pw" maxlength="8"/>
 				</div>
 				<div class="flex-between">
 					<label>비밀번호 확인</label>
-					<input class="w-60" type="password" name="pwcheck" maxlength="8"/>
+					<input class="w-60 re_input" type="password" name="pwcheck" maxlength="8"/>
 				</div>
 				<div class="email-wrapper flex-between">
 					<label>이메일</label>
 					<div class="w-60 flex-between">
-						<input class="w-40" type="text" name="email"/>
+						<input class="w-40 re_input" type="text" name="email"/>
 						@
-						<select name="com">
+						<select name="com re_input">
 							<option value="naver.com">naver.com</option>
 							<option value="google.com">google.com</option>
 							<option value="kakao.com">kakao.com</option>
@@ -46,18 +48,18 @@
 				<div class="flex-between">
 					<label>전화번호</label>
 					<div class="w-60 flex-between">
-						<select name="phone-1">
+						<select name="phone-1 re_input">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
 						</select>
-						<input class="w-30" type="text" name="phone-2" maxlength="4"/>
-						<input class="w-30" type="text" name="phone-3" maxlength="4"/>
+						<input class="w-30 re_input" type="text" name="phone-2" maxlength="4"/>
+						<input class="w-30 re_input" type="text" name="phone-3" maxlength="4"/>
 					</div>
 				</div>
 				<div class="flex-between">
 					<label>직급</label>
-					<div class="w-60">
+					<div class="w-60 re_input">
 						<input type="radio" name="grant" value="common"/> 일반
 						<input type="radio" name="grant" value="admin"/> 관리자
 					</div>
@@ -69,7 +71,7 @@
 					</div>
 				</div>
 				<div class="btn-wrapper">
-					<input type="button" value="회원가입" onclick="registerCheck()" />
+					<input type="button" value="회원가입" class = "re-button" onclick="registerCheck()" />
 				</div>
 			</form>
 		</div>

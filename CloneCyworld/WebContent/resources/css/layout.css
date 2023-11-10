@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+body{
+	background-image: url('../img/싸이월드body배경.png');
+}
+
+.container{
+	width: 50%;
+	height: 70%;
+	padding: 10%;
+}
+
 .center-layout {
 	display: flex;
 	justify-content: center;
