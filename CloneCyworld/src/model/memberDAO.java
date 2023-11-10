@@ -14,6 +14,7 @@ public class memberDAO extends DBConnector {
 	}
 	
 	public int CreateMember(member cyMember) throws ClassNotFoundException {
+		// 싸이월드 회원가입 DAO
 		String INSERT_MEMBER_SQL = "insert into Member (id, password, email, phone, isAdmin, imgName) values "
 									+ "(?, ?, ?, ?, ?, ?)";
 		
@@ -38,6 +39,7 @@ public class memberDAO extends DBConnector {
 	}
 	
 	public int CheckDuplicateId(String id) throws SQLException {
+		// 싸이월드 회원가입 시 아이디 중복확인 DAO
 		String GET_MEMBER_SQL = "select id from member where id = ?";
 		
 		int result = 0;
@@ -61,6 +63,7 @@ public class memberDAO extends DBConnector {
 	}
 	
 	public int CyworldLogin(String id, String pw) {
+		// 싸이월드 로그인 DAO
 		String CYWORLD_LOGIN_QUERY = "select password from member where id = ?";
 		
 		int result = 0;
@@ -87,6 +90,7 @@ public class memberDAO extends DBConnector {
 	}
 	
 	public member GetMember(String id) throws ClassNotFoundException {
+		// 싸이월드 로그인 후 로그인한 아이디 가져오기 DAO
 		String GET_MEMBER_SQL = "select * from Member where id = ? ";
 		member cyMember = new member();
 		

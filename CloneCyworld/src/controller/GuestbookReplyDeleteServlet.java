@@ -12,6 +12,7 @@ import model.GuestbookDAO;
 public class GuestbookReplyDeleteServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 싸이월드 방명록 댓글 삭제 서블릿
 		String id = req.getParameter("id");
 		int deleteR_no = Integer.parseInt(req.getParameter("deleteR_no"));
 		

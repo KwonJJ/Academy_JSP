@@ -34,6 +34,7 @@ public class RegisterServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 싸이월드 회원가입 서블릿
 		req.setCharacterEncoding("UTF-8");
 		String realFolder = req.getServletContext().getRealPath("/resources/img");
 		String realFolder2 = "C:\\jsp\\CloneCyworld\\WebContent\\resources\\img";

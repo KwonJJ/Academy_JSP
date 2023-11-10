@@ -20,6 +20,7 @@ public class LogoutServlet extends HttpServlet {
 	}
 	
 	private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		// 싸이월드 로그아웃 서블릿
 		HttpSession session = req.getSession();
 		if(session != null) {
 			session.invalidate();

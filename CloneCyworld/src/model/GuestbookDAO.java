@@ -9,6 +9,7 @@ import common.DBConnector;
 
 public class GuestbookDAO extends DBConnector {
 	public int InsertGuestbook(Guestbook guestbook, String id) {
+		// 싸이월드 방명록 글 작성 DAO
 		String INSERT_GUESTBOOK_SQL = "insert into guestbook (id, owner_id, created, content) values (?, ?, ?, ?);";
 		
 		LocalDateTime currentTime = LocalDateTime.now();
@@ -33,6 +34,7 @@ public class GuestbookDAO extends DBConnector {
 	}
 	
 	public List<Guestbook> GetUserGuestbookList(String owner_id) {
+		// 싸이월드 member테이블이랑 방명록 id 연결시켜서 방명록 작성하는 DAO
 		List<Guestbook> userGuestBookList = new ArrayList<Guestbook>();
 		String GET_USER_GUESTBOOK_LIST_SQL = "select guestbook.*, imgName from guestbook join member on member.id=guestbook.id where guestbook.owner_id=? order by no desc;";
 		
@@ -61,6 +63,7 @@ public class GuestbookDAO extends DBConnector {
 	}
 	
 	public void addGuestbookReply(int b_no, String id, String content) {
+		// 싸이월드 방명록 작성 DAO
 		try {
 			String ADD_GUESTBOOK_REPLY = "insert into guestbookReply(b_no, id, created, content) VALUES (?, ?, now(), ?)";
 			psmt = con.prepareStatement(ADD_GUESTBOOK_REPLY);
@@ -76,6 +79,7 @@ public class GuestbookDAO extends DBConnector {
 	}
 	
 	public void deleteGuestbook(int no) {
+		// 싸이월드 방명록 삭제 DAO
 		String DELETE_GUESTBOOK = "delete from guestbook where no = ?";
 		
 		try {
@@ -89,6 +93,7 @@ public class GuestbookDAO extends DBConnector {
 	}
 	
 	public List<GuestbookReply> selectReply(int b_no) {
+		// 댓글 번호(b_no)로 싸이월드 방명록 댓글 가져오기 DAO
 		List<GuestbookReply> list = new ArrayList<>();
 		
 		try {
@@ -117,6 +122,7 @@ public class GuestbookDAO extends DBConnector {
 	}
 	
 	public void ReplyDelete(int r_no) {
+		// 싸이월드 방명록 댓글 삭제 DAO
 		String GUESYBOOKREPLY_DELETE = "delete from guestbookReply where r_no = ?";
 		try {
 

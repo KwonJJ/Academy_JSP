@@ -14,6 +14,7 @@ public class IdCheckServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 싸이월드 유저 아이디 중복체크 서블릿
 		String id = req.getParameter("id");
 		
 		memberDAO cyMemberDAO = new memberDAO();

@@ -20,6 +20,7 @@ public class GuestbookDeleteServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 싸이월드 방명록 게시글 삭제 서블릿
 		String id = req.getParameter("id");
 		String deleteNo = req.getParameter("deleteNo");
 		

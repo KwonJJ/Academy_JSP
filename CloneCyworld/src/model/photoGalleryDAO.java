@@ -9,6 +9,7 @@ import common.DBConnector;
 public class photoGalleryDAO extends DBConnector{
 	
 	public int InsertPhoto(photoGallery photo) {
+		// 싸이월드 사진첩 사진 업로드 DAO
 		String INSERT_PHOTO_SQL = "insert into photoGallery (id, title, content, created, image) values (?, ?, ?, now(), ?)";
 		
 		int result = 0;
@@ -32,6 +33,7 @@ public class photoGalleryDAO extends DBConnector{
 	}
 	
 	public List<photoGallery> GetUserPhotoList(String id){
+		// List에 member테이블의 id와 photoGallery의 id를 연결시켜서 해당 id와 일치하는 사진첩 불러오기 DAO
 		List<photoGallery> userPhotoList = new ArrayList<photoGallery>();
 		String GET_USER_PHOTOLIST_SQL = "select photoGallery.*, image from photoGallery join member on member.id=photoGallery.id where photoGallery.id = ? order by p_no desc;";
 		
@@ -62,6 +64,7 @@ public class photoGalleryDAO extends DBConnector{
 	}
 	
 	public photoGallery getPhoto(String id) throws ClassNotFoundException{
+		// 싸이월드 사진첩 불러오기 DAO
 		String GET_PHOTO = "select * from photoGallery where id = ?";
 		photoGallery photo = new photoGallery();
 		

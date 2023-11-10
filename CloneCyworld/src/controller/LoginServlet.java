@@ -15,6 +15,7 @@ public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 싸이월드 로그인 서블릿
 		memberDAO cyMemberDAO = new memberDAO();
 		GuestbookDAO guestbookDAO = new GuestbookDAO();
 		
