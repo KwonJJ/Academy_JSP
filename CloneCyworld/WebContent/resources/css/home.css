@@ -1,11 +1,16 @@
 @charset "UTF-8";
 
+body{
+	background-image: url('../img/싸이월드body배경.png');
+}
+
 .container-1{
 	margin: auto;
 	margin-top: 3%;
 	padding: 4%;
 	width: 80%;
 	height: 90%;
+	background-image: url('../img/싸이월드 전체 배경.png');
 }
 
 .container-2 {
@@ -124,6 +129,7 @@
 	background-color: lawngreen;
 	border-radius: 15px;
 	border: none;
+	font-size: larger;
 	font-weight: bold;
 }
 

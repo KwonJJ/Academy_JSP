@@ -49,7 +49,7 @@
 				
 				<div style = "display: flex; padding-top: 5px; padding-bottom: 10px;">
 					<input type="text" name="content"/>
-					<button type="submit" class = "button">사진 등록</button>
+					<button type="submit" class = "button">글 등록</button>
 				</div>
 			</form>
 	

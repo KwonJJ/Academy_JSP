@@ -64,6 +64,7 @@
 					</form>
 				</c:if>
 				
+				
 				<%
 					Guestbook dt = (Guestbook)pageContext.getAttribute("guestbookDTO");
 					int no = dt.getNo();

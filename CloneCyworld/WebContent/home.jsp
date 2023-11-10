@@ -17,8 +17,8 @@
 %>
 <title><%=user.getId()%>님의 미니홈피</title>
 </head>
-<body style = "background-image: url('./resources/img/싸이월드body배경.png');">
-<div class = "container-1" style = "background-image: url('./resources/img/싸이월드 전체 배경.png');">
+<body>
+<div class = "container-1">
 	<div class="container-2">
 		<div class="left-box">
 			<div class="box-radius-5 center"><%=user.getId()%>님의 미니홈피</div>
