@@ -55,7 +55,7 @@ function registerCheck() {
 function idCheck() {
 	var url = "IdCheckServlet?id=" + document.frm.id.value;
 	window.open(url, "_blank",
-	"scrollbars=yes, width=450, height=200");
+	"scrollbars=yes, width=500, height=300");
 }
 
 function idOk() {
