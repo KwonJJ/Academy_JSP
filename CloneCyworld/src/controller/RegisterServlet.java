@@ -23,21 +23,15 @@ public class RegisterServlet extends HttpServlet {
 	}
 	
 	@Override
-	public void destroy() {
-		cymemberDAO.close();
-	}
-	
-	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 싸이월드 회원가입 서블릿
 		req.setCharacterEncoding("UTF-8");
 		String realFolder = req.getServletContext().getRealPath("/resources/img");
-		String realFolder2 = "C:\\jsp\\CloneCyworld\\WebContent\\resources\\img";
+		String realFolder2 = "C:\\jsp\\CloneCyworld2\\WebContent\\resources\\img";
 		System.out.println(realFolder);
 		resp.setContentType("text/html; charset=UTF-8");
 		int maxSize = 5 * 1024 * 1024;

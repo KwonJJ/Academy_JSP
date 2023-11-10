@@ -4,9 +4,16 @@
 	background-image: url('../img/회원가입 배경.jpg');
 }
 
+.re-back {
+	width: 600px;
+	height: 700px;
+	background-image: url('../img/싸이월드 전체 배경.png');
+}
+
 .re_input{
 	padding: 5px;
 	background-color: lightyellow;
+	border: none;
 }
 
 .box {

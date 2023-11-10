@@ -11,13 +11,12 @@
 <title>회원가입</title>
 </head>
 <body class="center-layout-column">
-	<div class="center-layout-column">
-		<a href = "login.jsp">
-			<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
-		</a>
+	<div class="center-layout-column re-back">
+		<img class="logo" alt="logo" src="./resources/img/cyworld.png" />
 		<div class="box center-layout-column register">
 			<form action="RegisterServlet" method="post" name="frm" enctype="multipart/form-data">
 				<div class="flex-between">
+		
 					<label>아이디</label>
 					<div class="w-60 flex-between">
 						<input class="w-70 re_input" type="text" name="id" maxlength="20" />
@@ -38,7 +37,7 @@
 					<div class="w-60 flex-between">
 						<input class="w-40 re_input" type="text" name="email"/>
 						@
-						<select name="com re_input">
+						<select name="com">
 							<option value="naver.com">naver.com</option>
 							<option value="google.com">google.com</option>
 							<option value="kakao.com">kakao.com</option>
@@ -48,7 +47,7 @@
 				<div class="flex-between">
 					<label>전화번호</label>
 					<div class="w-60 flex-between">
-						<select name="phone-1 re_input">
+						<select name="phone-1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
@@ -71,7 +70,7 @@
 					</div>
 				</div>
 				<div class="btn-wrapper">
-					<input type="button" value="회원가입" class = "re-button" onclick="registerCheck()" />
+					<input type="button" value="회원가입" onclick="registerCheck()" class = "re-button"/>
 				</div>
 			</form>
 		</div>
