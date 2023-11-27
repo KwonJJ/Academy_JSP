@@ -32,6 +32,7 @@ public class ProductRepository extends JDBConnect {
 				dto.setUnitsInStock(rs.getLong(7));
 				dto.setCondition(rs.getString(8));
 				dto.setProductImage(rs.getString(9));
+				
 				listOfProducts.add(dto);
 			}
 			
