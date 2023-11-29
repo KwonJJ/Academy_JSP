@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="./resources/css/left_menu.css">
 <link rel="stylesheet" href="./resources/css/main_items.css">
 <link rel="stylesheet" href="./resources/css/main.css">
+<link rel="stylesheet" href="./resources/css/info_img.css">
+<link rel="stylesheet" href="./resources/css/info_layout.css">
 <link rel="stylesheet" href="./resources/css/footer.css">
 <meta charset="UTF-8">
 <title>메인화면</title>
