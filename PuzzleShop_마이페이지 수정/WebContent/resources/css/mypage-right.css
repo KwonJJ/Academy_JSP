@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+#myInfo-txt-box h3 {
+    margin-bottom: 10px;
+}
+
+.myPage-right-box {
+	margin-left: 50px;
+}
+
+.myPage-right-box .flex_between {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.myPage-right-box div label {
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.myPage-right-box .member-input {
+    width: 250px;
+    height: 30px;
+    border: 1px solid lightgray;
+}
+
+.flex_between .email_box,
+.flex_between .adress_box {
+    width: 250px;
+}
+
+.btn-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-box input {
+    width: 100px;
+    height: 60px;
+    margin: 10px;
+    font-size: larger;
+}
+
+#delete_btn {
+    border: none;
+	background-color: #404040;
+    color: #fff;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+#edit_btn {
+    border: none;
+    background-color: #404040;
+    color: #fff;
+    border-radius: 2px;
+    font-weight: bold;
+}

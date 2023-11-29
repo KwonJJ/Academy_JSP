@@ -17,7 +17,7 @@
         <div class="bottom-left">
           <a href="login.jsp">로그인</a>
           <a href="register.jsp">회원가입</a>
-          <a href="#">마이페이지</a>
+          <a href="myPage.jsp">마이페이지</a>
         </div>
         <div class="bottom-middle">
           <a href="#">실시간랭킹</a>

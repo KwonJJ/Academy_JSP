@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>left-menu</title>
+<link rel="stylesheet" href="./resources/css/layout.css" />
 <link rel="stylesheet" href="resources/css/layout.css">
 <link rel="stylesheet" href="resources/css/left-menu.css">
 </head>
