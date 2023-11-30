@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.myPage-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.myPage-container .myPage-left-box {
+    width: 30%;
+    border-right: 1px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+}
+
+.myPage-left-box .myPage-left-menu {
+    margin: 10px;
+	text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
