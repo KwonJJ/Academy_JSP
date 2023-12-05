@@ -66,6 +66,21 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class = "product_info_img_container">
+		<h1>상품 정보</h1>
+		<img class = "product_info_img" alt="상품 정보" src="./resources/images/상품정보이미지예시.jpg">
+	</div>
 
+
+	<div class = "product_review_container">
+		<h1>구매 후기</h1>
+		<div class = "product_review_box">
+			<form action="#">
+				<textarea></textarea>
+				<button type = "submit">구매후기 등록</button>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

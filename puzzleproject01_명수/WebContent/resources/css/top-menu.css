@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+nav {
+  display: inline-block;
+  width: 100%;
+  height: 120px;
+  background-color: black;
+}
+
+nav .nav-top {
+  margin: 20px 10px 10px 10px;
+  text-align: center;
+}
+
+nav .nav-top h1 a {
+  font-size: 40px;
+  letter-spacing: 15px;
+  color: rgb(133 150 191);
+}
+
+nav .nav-bottom {
+  margin: 15px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav .nav-bottom .bottom-left-logout {
+  margin-left: 40px;
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav .nav-bottom .bottom-left-login {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav .nav-bottom .bottom-right {
+  width: 230px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+nav .nav-bottom a:hover {
+  color: gray;
+}

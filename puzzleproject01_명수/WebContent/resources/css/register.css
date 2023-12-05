@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+button {
+	cursor: pointer;
+}
+
+.container-wrapper {
+	padding-top: 90px;
+}
+
+.container-wrapper .join-member {
+	margin: 0 auto 150px;
+    width: 800px;
+}
+
+.container-wrapper .join-member form fieldset h3 {
+    padding-bottom: 30px;
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 30px;
+    letter-spacing: -1px;
+    color: #0d0d0d;
+    border-bottom: 1px solid #0d0d0d;
+    margin-bottom: 37px;
+}
+
+.container-wrapper .join-member form fieldset .join-table {
+	padding-bottom: 30px;
+    width: 100%;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.container-wrapper .join-member form fieldset .join-table .text-box {
+	position: relative;
+    font-size: 0;
+}
+
+.container-wrapper .join-member form fieldset .join-table .text-box input {
+	vertical-align: top;
+    outline-style: none;
+    appearance: none;
+}
+
+.container-wrapper .join-member form fieldset .join-table .text-box .input-login {
+	padding: 0 20px;
+    width: 100%;
+    height: 56px;
+    font-size: 15px;
+    line-height: 56px;
+    border: 1px solid #e1e1e1;
+    box-sizing: border-box;
+}
+
+.container-wrapper .join-member form fieldset .join-table .text-box .btn-text {
+	height: 56px;
+	line-height: 56px;
+	font-size: 14px;
+	color: #fff;
+	border: 0;
+	background-color: #404040;
+	float: right;
+}
+
+.container-wrapper .join-member form fieldset .submit-btn {
+	margin-top: 30px !important;
+	padding: 22.5px 0 !important;
+	width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    border: 0;
+}
+
+
+

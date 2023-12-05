@@ -72,3 +72,8 @@
 .product_view .product_btn > a.buy_btn {
   background: #0a56a9;
 }
+
+.product_info_img_container .product_info_img {
+	width: 1000px;
+	margin-top: 20px;
+}
